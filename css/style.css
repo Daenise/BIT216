@@ -119,7 +119,7 @@ body {
 }
 
 .quotes{
-  width:750px;
+  width:auto;
   border: 5px solid #71D0FF;
   padding: 25px;
   margin: auto;
@@ -127,16 +127,67 @@ body {
 
 /* --- services --- */
 #services {
-	text-align:center;
 	background-color:#ffffff;
 }
 
-/* --- works --- */
-#works {
+.donationBtn {
+  border-radius: 12px;
+  background-color: #F97044;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 32px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.donationBtn a {
+  color: #ffffff;
+}
+
+.donationBtn:hover {
+  background-color: #ffffff;
+  color: #F97044;
+  border-color: #F97044;
+  text-decoration: none;
+}
+
+.donationBtn:hover a{
+  text-decoration: none;
+  color: #F97044;
+}
+
+.postBtn {
+  border-radius: 12px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 32px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.postBtn a{
+  color: #ffffff;
+}
+
+.postBtn:hover {
+  background-color: #ffffff;
+  color: #4CAF50;
+  border-color: #4CAF50;
+  text-decoration: none;
+}
+
+.postBtn:hover a{
+  text-decoration: none;
+  color: #4CAF50;
+}
+
+/* --- donations --- */
+#donations {
 	padding-top:60px;
 	text-align:center;
 	padding-bottom:30px;
-	background-color:#fff;
+	background-color:#f9f9f9;
 }
 
 /* ===========================
@@ -173,7 +224,12 @@ body {
 
 .service-icon {
 	margin-bottom:50px;
+  text-align: center;
 
+}
+
+.iconTitle{
+  text-align: center;
 }
 
 .service-icon:hover {
