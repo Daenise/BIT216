@@ -42,6 +42,10 @@
 
 })(jQuery);
 
+$('.carousel').carousel({
+	interval:6000
+})
+
 //Back to top button function
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
