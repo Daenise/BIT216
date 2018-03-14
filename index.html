@@ -12,6 +12,7 @@
   <link href="css/animate.min.css" rel="stylesheet">
   <link href="css/animate.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script>
@@ -43,11 +44,10 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li class="active"><a href="#home">Home</a></li>
                   <li><a href="#about">About Us</a></li>
-                  <li><a href="#services">How You Help</a></li>
+                  <li><a href="#services">How Can You Help</a></li>
                   <li><a href="#donations">Donation</a></li>
                   <li><a href="#events">Past Events</a></li>
-                  <li><a href="#contact">Locations</a></li>
-                  <li><a href="#contact">SignUp/LogIn</a></li>
+                  <li class="loginBtn"><a data-toggle="modal" data-target="#myModal"> Login </a></li>
                 </ul>
               </div>
               <!-- /.Navbar-collapse -->
@@ -69,19 +69,19 @@
 
       <div class="carousel-inner">
         <div class="item active">
-          <img class="img-responsive center-block" src="img/jj1.jpg" alt="Gym1">
+          <img class="img-responsive center-block cImage" src="img/jj1.jpg" alt="Gym1">
           <div class="carousel-caption">
           </div>
         </div>
 
         <div class="item">
-          <img class="img-responsive center-block" src="img/jj2.jpg" alt="Gym2">
+          <img class="img-responsive center-block cImage" src="img/jj2.jpg" alt="Gym2">
           <div class="carousel-caption">
           </div>
         </div>
 
         <div class="item">
-          <img class="img-responsive center-block" src="img/jj3.jpg" alt="Gym3">
+          <img class="img-responsive center-block cImage" src="img/jj3.jpg" alt="Gym3">
           <div class="carousel-caption">
           </div>
         </div>
@@ -99,6 +99,54 @@
 
     <!-- back to top button -->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><span class="fa fa-angle-double-up"></span></button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <form class="form-login" method="post" action="#">
+
+            <div class="form-log-in-with-email">
+
+                <div class="form-white-background">
+
+                    <div class="form-title-row">
+                        <h1>Log in</h1>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="email">
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <span>Password</span>
+                            <input type="password" name="password">
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <button type="submit">Log in</button>
+                    </div>
+
+                </div>
+                <p>New User?</p>
+                <a href="#" class="form-create-an-account">Create an account &rarr;</a>
+
+            </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
 
     <div class="container marginbot-50">
       <div class="row">
@@ -165,55 +213,54 @@
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
               <div class="section-heading">
-              <h2 class="h-bold text-center">About AGN</h2>
-              <div class="row">
-                <div class="col-md-4 agn">
-                  <img src="img/agnlogo.jpg" alt="" class="img-responsive" />
-                </div>
+                <h2 class="h-bold text-center">About AGN</h2>
+                <div class="row">
+                  <div class="col-md-4 agn">
+                    <img src="img/agnlogo.jpg" alt="" class="img-responsive" />
+                  </div>
 
-                <div class="col-md-8">
-                  <br><br><br>
-                  <p> ACTS Global Networking (AGN) is a non-profit organization mainly focusing on education and social concern activities. One of the community activities that it has been involved in over the past fourteen years is its “street ministry” where the organization reaches out and helps the hurting and neglected children and youth in Jinjang. AGN has been extending support, counselling and meeting the material needs of this needful community for over fourteen years. </p>
-                  <p>One of AGN project namely Jinjang Utara Community. AGN will collect donations for the community and find sponsors for children, thus they can go to school. In addition, AGN also organizes social or educational events for the children and youth.
-                  </p> <br>
+                  <div class="col-md-8">
+                    <br><br><br>
+                    <p> ACTS Global Networking (AGN) is a non-profit organization mainly focusing on education and social concern activities. One of the community activities that it has been involved in over the past fourteen years is its “street ministry” where the organization reaches out and helps the hurting and neglected children and youth in Jinjang. AGN has been extending support, counselling and meeting the material needs of this needful community for over fourteen years. </p>
+                    <p>One of AGN project namely Jinjang Utara Community. AGN will collect donations for the community and find sponsors for children, thus they can go to school. In addition, AGN also organizes social or educational events for the children and youth.
+                    </p> <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container marginbot-50">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
+                <u><h3 class="h-bold"> Literacy and Numeracy Programme </h3></u>
+
+                <img src="img/edu.png" alt="" class="img-responsive" /> <br>
+
+                <p> Education has an important role to play in the eradication of poverty. Unfortunately for many families living in poverty, education is a luxury they cannot afford. This is a great tragedy, as education should be a basic human right that must be met.</p>
+
+                <p>The effects of poverty had resulted in some children growing up in poverty stricken homes, suffering more frequent and persistent health problems compared to children who grow up under better financial circumstances. Children raised under poverty noticeably, tend to miss school more often because of illness, level of stress at home, lack of child- care facilities, and unfortunately, sometimes, violence at home. As our nation progresses, there needs to be intervention programmes for the poor to ensure they are not left behind. </p>
+
+                <p>Even though schooling is free here in Malaysia, those who live in poverty still cannot afford to pay for their children’s miscellaneous fees such as activities, textbooks and uniforms, and their meals. Now in this age and era, each child needs a computer, and these items that we take for granted are not cheap for those who are destitute. </p>
+
+                <p>Sadly, those who are destitute would rather send their children out to work, so that they can earn a living to support their parents and siblings. These children should remain in school, as it is proven that each year they remain in school their earning potential increases by 10-20%. </p>
+
+                <p>English may not be the most spoken language in the world, but it remains as the dominant language for business and has become almost a necessity for people to enter a global workforce. Its importance in the global market place therefore cannot be understated, as learning English really can change lives. </p>
+
+                <p>Hence, the literacy project was launched in December 2014, giving opportunities for the resident children to unlock their full potential and find meaningful careers in the future.The children in the Jinjang community are especially weak in the foundational subjects of English, Maths and Science. The Maths Numeracy Project for the children from Jinjang Utara then followed suit in early 2017. </p>
+
+                <p>We are committed to do what we can to improve the literacy and numeracy skills of those who are left behind. </p>
+
+                <p> Although some supporters have donated generously each year to charity, the needs of the poor cannot all be met. There are only so much we can do. Many households in destitute require financial aid for many things including tuition and remedial classes for subjects that they are weak in. </p>
+
+                <p> This is a small project, but one that must continue and sustain itself, so that it will have a greater impact on these children’s lives. We encourage you to join us in our effort in uplifting our communities and making a difference in their lives. It stems from a simple conviction that we all share, that every child and every life matters, for our community and for the future of our nation. </p><br>
+
+                <div class="quotes"> “Life is not a competition. Life is about helping and inspiring others, so we can reach our full potential”
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="container marginbot-50">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-              <u><h3 class="h-bold"> Literacy and Numeracy Programme </h3></u>
-
-              <img src="img/edu.png" alt="" class="img-responsive" /> <br>
-
-              <p> Education has an important role to play in the eradication of poverty. Unfortunately for many families living in poverty, education is a luxury they cannot afford. This is a great tragedy, as education should be a basic human right that must be met.</p>
-
-              <p>The effects of poverty had resulted in some children growing up in poverty stricken homes, suffering more frequent and persistent health problems compared to children who grow up under better financial circumstances. Children raised under poverty noticeably, tend to miss school more often because of illness, level of stress at home, lack of child- care facilities, and unfortunately, sometimes, violence at home. As our nation progresses, there needs to be intervention programmes for the poor to ensure they are not left behind. </p>
-
-              <p>Even though schooling is free here in Malaysia, those who live in poverty still cannot afford to pay for their children’s miscellaneous fees such as activities, textbooks and uniforms, and their meals. Now in this age and era, each child needs a computer, and these items that we take for granted are not cheap for those who are destitute. </p>
-
-              <p>Sadly, those who are destitute would rather send their children out to work, so that they can earn a living to support their parents and siblings. These children should remain in school, as it is proven that each year they remain in school their earning potential increases by 10-20%. </p>
-
-              <p>English may not be the most spoken language in the world, but it remains as the dominant language for business and has become almost a necessity for people to enter a global workforce. Its importance in the global market place therefore cannot be understated, as learning English really can change lives. </p>
-
-              <p>Hence, the literacy project was launched in December 2014, giving opportunities for the resident children to unlock their full potential and find meaningful careers in the future.The children in the Jinjang community are especially weak in the foundational subjects of English, Maths and Science. The Maths Numeracy Project for the children from Jinjang Utara then followed suit in early 2017. </p>
-
-              <p>We are committed to do what we can to improve the literacy and numeracy skills of those who are left behind. </p>
-
-              <p> Although some supporters have donated generously each year to charity, the needs of the poor cannot all be met. There are only so much we can do. Many households in destitute require financial aid for many things including tuition and remedial classes for subjects that they are weak in. </p>
-
-              <p> This is a small project, but one that must continue and sustain itself, so that it will have a greater impact on these children’s lives. We encourage you to join us in our effort in uplifting our communities and making a difference in their lives. It stems from a simple conviction that we all share, that every child and every life matters, for our community and for the future of our nation. </p><br>
-
-              <div class="quotes"> “Life is not a competition. Life is about helping and inspiring others, so we can reach our full potential”
-              </div>
-              <br><br>
-            </div>
-          </div>
-        </div>
-      </div>
       </section>
       <!-- /Section: about -->
 
@@ -252,7 +299,7 @@
                 <p> Volunteer as a teacher : </p>
                 <ul>
                   <li> We need teachers who can teach Primary Maths and English to children from Jinjang. Our classes are on Saturdays from 2 pm to 5 pm, in HELP University, KPD,  Jalan Dungun, Kuala Lumpur. </li>
-               </ul>
+                </ul>
               </div>
             </div>
 
@@ -262,10 +309,10 @@
                   <span class="fa fa-book fa-5x"></span>
                 </div>
                 <h2 class="iconTitle">Learning Materials</h2>
-                  <ul>
-                    <li> We need help in curriculum design/development. Materials that we can use to teach these children. We have around 60 children taking Maths and another 60 taking English tuition with us each Saturday. We need materials that can be used by teachers as well as workbooks for the children </li>
-                    <li> Each week, children will go through workbooks with exercises that will strengthen their understanding of the respective subjects </li>
-                  </ul>
+                <ul>
+                  <li> We need help in curriculum design/development. Materials that we can use to teach these children. We have around 60 children taking Maths and another 60 taking English tuition with us each Saturday. We need materials that can be used by teachers as well as workbooks for the children </li>
+                  <li> Each week, children will go through workbooks with exercises that will strengthen their understanding of the respective subjects </li>
+                </ul>
               </div>
             </div>
 
@@ -275,63 +322,63 @@
                   <span class="fa fa-pencil fa-5x"></span>
                 </div>
                 <h2 class="iconTitle">Children School Suplies</h2>
-                  <ul>
-                    <li> We need school bags, school shoes, socks, books, stationery, etc that can be used by the children to start the school year. Each year before Christmas (early December), we host a big Christmas event for the children from this community, where we provide games, songs and lunch for the children. At the end of the party, we will distribute school bags, stationery and other essential items to encourage them to get the new year started </li>
-                  </ul>
+                <ul>
+                  <li> We need school bags, school shoes, socks, books, stationery, etc that can be used by the children to start the school year. Each year before Christmas (early December), we host a big Christmas event for the children from this community, where we provide games, songs and lunch for the children. At the end of the party, we will distribute school bags, stationery and other essential items to encourage them to get the new year started </li>
+                </ul>
               </div>
             </div>
           </div><br><br>
 
-            <div class="row">
-              <div class="col-md-4">
-                <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.8s">
-                  <div class="service-icon">
-                    <span class="fa fa-money fa-5x"></span>
-                  </div>
-                  <h2 class="iconTitle">Sponsor a Child</h2>
-                  <p>How the child sponsorship works :
-                    <ul>
-                      <li> Contact us to find out the details of needy children </li>
-                      <li> Choose a child to sponsor </li>
-                      <li> Sponsor at least RM150 per month which will cover the cost of school bus, daily lunch allowance and compulsory school fees </li>
-                      <li> Alternately, your sponsorship can be pooled with other sponsors to support a child </li>
-                      <li> By sponsoring a child, you get to see the impact your sponsorship has on the child and on the community</li>
-                    </ul>
-                  </p>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.8s">
+                <div class="service-icon">
+                  <span class="fa fa-money fa-5x"></span>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.8s">
-                  <div class="service-icon">
-                    <span class="fa fa-female fa-5x"></span>
-                  </div>
-                  <h2 class="iconTitle">E-Business</h2>
-                    <ul>
-                      <li> Empowering mothers out of poverty. In some communities like Jinjang, the girls will be the target of vices, especially if they are not able to find jobs to help sustain their families. In families with many children, the mothers struggle with finding jobs, as they still have very young children who need to be taken care of, at home. Unable to leave the home or join the work force, they remain destitute and helpless. When you empower a woman, she can become a catalyst for positive change, whose success can benefit the family and even her community. Help them by providing a work opportunity today.
-                      </li>
-                    </ul>
-                    <button type="button" class="postBtn btn btn-block"><a href=#> Post a Job! </a></button>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.8s">
-                  <div class="service-icon">
-                    <span class="fa fa-heart fa-5x"></span>
-                  </div>
-                  <h2 class="iconTitle">Donation</h2>
-                    <ul>
-                      <li> Any donation no matter how small will be deeply appreciated and is much needed. </li>
-                      <li>Giving is not just about making a donation, it's about making a difference. </li>
-                    </ul>
-                    <button type="button" class="donationBtn btn btn-block"><a href=#donations> Make a Donation Now! </a></button>
-                  </div>
-                </div>
+                <h2 class="iconTitle">Sponsor a Child</h2>
+                <p>How the child sponsorship works :
+                  <ul>
+                    <li> Contact us to find out the details of needy children </li>
+                    <li> Choose a child to sponsor </li>
+                    <li> Sponsor at least RM150 per month which will cover the cost of school bus, daily lunch allowance and compulsory school fees </li>
+                    <li> Alternately, your sponsorship can be pooled with other sponsors to support a child </li>
+                    <li> By sponsoring a child, you get to see the impact your sponsorship has on the child and on the community</li>
+                  </ul>
+                </p>
               </div>
             </div>
+
+            <div class="col-md-4">
+              <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.8s">
+                <div class="service-icon">
+                  <span class="fa fa-female fa-5x"></span>
+                </div>
+                <h2 class="iconTitle">E-Business</h2>
+                <ul>
+                  <li> Empowering mothers out of poverty. In some communities like Jinjang, the girls will be the target of vices, especially if they are not able to find jobs to help sustain their families. In families with many children, the mothers struggle with finding jobs, as they still have very young children who need to be taken care of, at home. Unable to leave the home or join the work force, they remain destitute and helpless. When you empower a woman, she can become a catalyst for positive change, whose success can benefit the family and even her community. Help them by providing a work opportunity today.
+                  </li>
+                </ul>
+                <button type="button" class="postBtn btn btn-block"><a href=#> Post a Job! </a></button>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.8s">
+                <div class="service-icon">
+                  <span class="fa fa-heart fa-5x"></span>
+                </div>
+                <h2 class="iconTitle">Donation</h2>
+                <ul>
+                  <li> Any donation no matter how small will be deeply appreciated and is much needed. </li>
+                  <li>Giving is not just about making a donation, it's about making a difference. </li>
+                </ul>
+                <button type="button" class="donationBtn btn btn-block"><a href=#donations> Make a Donation Now! </a></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <!-- Section: how can you help -->
+      <!-- /Section: how can you help -->
 
       <!-- Section: donations -->
       <section id="donations">
@@ -341,155 +388,84 @@
               <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
                 <div class="section-heading text-center">
                   <h2 class="h-bold"> Donation </h2>
-                  <div class="divider-header"></div>
-
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-
-      </section>
-      <!-- Section: donations -->
-
-
-      <div id="contact">
-        <div class="map">
-          <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kuningan,+Jakarta+Capital+Region,+Indonesia&amp;aq=3&amp;oq=kuningan+&amp;sll=37.0625,-95.677068&amp;sspn=37.410045,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Kuningan&amp;t=m&amp;z=14&amp;ll=-6.238824,106.830177&amp;output=embed">
-          </iframe>
-        </div>
-
-        <div class="container">
-          <div class="row contact-wrap">
-            <div class="status alert alert-success" style="display: none"></div>
-            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
-              <div class="col-sm-5 col-sm-offset-1">
-                <div class="form-group">
-                  <label>Name *</label>
-                  <input type="text" name="name" class="form-control" required="required">
-                </div>
-                <div class="form-group">
-                  <label>Email *</label>
-                  <input type="email" name="email" class="form-control" required="required">
-                </div>
-                <div class="form-group">
-                  <label>Phone</label>
-                  <input type="number" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Company Name</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-group">
-                  <label>Subject *</label>
-                  <input type="text" name="subject" class="form-control" required="required">
-                </div>
-                <div class="form-group">
-                  <label>Message *</label>
-                  <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
-                </div>
-                <div class="form-group">
-                  <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
-                </div>
-              </div>
-            </form>
-          </div><!--/.row-->
-        </div>
-      </div>
-
-      <form action="../php/validate.php" method="post">
-  <div class="container">
-    <div class="vertical-align">
-      <h1 class="display-1">HELP FIT</h1><br /><br />
-      <div class="row">
-        <div class="form-group">
-          <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-            <label class="label hidden">UserName:</label><br/>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <span class="glyphicon glyphicon-user"></span>
-              </div>
-              <input class="form-control input-lg" type="text"
-              placeholder="user name" name="userName"
-              onfocus="this.placeholder=''" onblur="this.placeholder='user name'"
-              required/><br /><br />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-            <label class="label hidden">Password:</label><br />
-            <div class="input-group">
-              <div class="input-group-addon">
-                <span class="glyphicon glyphicon-lock"></span>
-              </div>
-              <input class="form-control input-lg" type="password" placeholder="password"
-              name="password"  onfocus="this.placeholder=''"
-              onblur="this.placeholder='password'" required/>
-            </div>
-            <?php
-            /*
-            show user some alert when they failed to log in
-            */
-            if($_SESSION['userName'] == "failed") {
-              echo
-              "<br />
-              <div class='alert alert-danger'>
-              Invalid username or password. Please try again!
-              </div>";
-              unset($_SESSION['userName']);
-            }
-            ?>
-          </div>
-        </div>
-      </div><br /><br />
-      <div class = "row">
-        <div style = "text-align: center; padding-left:15px; padding-right:15px;">
-          <input class = "btn btn-lg btn-primary btn-block visible-xs-block"
-          style = "border-radius: 20px;" type = "submit" value = "Log In"/>
-          <input class = "btn btn-lg btn-primary hidden-xs" type = "submit"
-          value = "Log In" style = "width: 125px";/>
-          <br /><span class = "hidden-xs"><br /></span>
-          <p style = "color: white;">
-            Don't have an account? <br />
-          </p>
-          <a data-toggle="modal" data-target="#myModal">Sign Up Now</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</form>
-
-      <footer>
-        <div class="container">
+          <div class="divider-header"></div>
+          <p class="Aname"> Account Holder Name : ACTS Global Networking </p>
           <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <div class="text-center">
-                <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-                <p>SOLO, Inc. 456 Folsom Ave, Suite 600 California, CA 94107<br />
-                  &copy;Copyright 2015 - Knight. Designed by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
-                </div>
-                <!--
-                All links in the footer should remain intact.
-                Licenseing information is available at: http://bootstraptaste.com/license/
-                You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=KnightOne
-              -->
+            <div class="col-sm-6 col-md-5">
+              <img src="img/MBB_logo.png" alt="" class="img-responsive bankLogo" />
+              <p style="font-size: 45px; padding-bottom:50px;"> 5678 2345 1234 </p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-md-offset-1">
+              <img src="img/PBB_logo.png" alt="" class="img-responsive" />
+              <p style="font-size: 45px; padding-bottom:50px;"> 123 4567 890 </p>
             </div>
           </div>
-        </div>
-      </footer>
 
-      <!-- Core JavaScript Files -->
-      <script src="js/jquery-2.1.1.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/wow.min.js"></script>
-      <script src="js/jquery.easing.min.js"></script>
-      <script src="js/functions.js"></script>
-    </body>
-    </html>
+          <div class="container Pform">
+            <h1 class="pTitle"> Make A Pledge : </h1>
+            <form class="pledge">
+              <label>Full Name : </label><input type="text" name="fullName"><br><br>
+              <label>Address : </label><input type="text" name="address"><br><br>
+              <label>Email : </label><input type="text" name="email"><br><br>
+              <label>Mobile No : </label><input type="text" name="mobileNo"><br><br>
+              <label>Quantum Pledged(One time Payment) : </label><input type="text" name="quantumP"><br><br>
+              <label>Monthly Payment : </label><input type="text" name="monthlyP"><br><br>
+              <label>Date to be delivered : </label><input type="date" name="date"><br><br>
+              <button type="submit" class="submitBtn"> Submit </button>
+            </form>
+          </div>
+
+        </div>
+      </section>
+      <!-- /Section: donations -->
+
+      <!-- Section : PastEvents -->
+      <section id="events">
+        <div class="container marginbot-50">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
+                <div class="section-heading text-center">
+                  <h2 class="h-bold"> Past Events </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider-header"></div>
+
+          <!-- /Section: PastEvents -->
+
+
+          <footer>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                  <div class="text-center">
+                    <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+                    <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891<br />
+                      &copy;Copyright 2015 - Knight. Designed by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
+                    </div>
+                    <!--
+                    All links in the footer should remain intact.
+                    Licenseing information is available at: http://bootstraptaste.com/license/
+                    You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=KnightOne
+                  -->
+                </div>
+              </div>
+            </div>
+          </footer>
+
+          <!-- Core JavaScript Files -->
+          <script src="js/jquery-2.1.1.min.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+          <script src="js/wow.min.js"></script>
+          <script src="js/jquery.easing.min.js"></script>
+          <script src="js/functions.js"></script>
+        </body>
+        </html>
