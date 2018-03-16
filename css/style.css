@@ -94,7 +94,7 @@ body {
 .navs .nav li a:focus,
 .navs .nav li.active {
     outline: 0;
-    background-color:#D09A43 ;
+    background-color:#000d1a ;
 	color:#fff;
 }
 
@@ -336,7 +336,7 @@ ol.carousel-indicators li.active {
 ============================ */
 
 footer {
-    background-color: #D09A43;
+    background-color: #000d1a;
 }
 
 footer {

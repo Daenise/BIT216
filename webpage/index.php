@@ -57,7 +57,7 @@ if (empty($_SESSION['pSignUp'])) {
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active"><a href="#home">Home</a></li>
+                  <li><a href="#home">Home</a></li>
                   <li><a href="#about">About Us</a></li>
                   <li><a href="#services">How To Help</a></li>
                   <li><a href="#donations">Donations</a></li>
@@ -279,9 +279,10 @@ if (empty($_SESSION['pSignUp'])) {
                               class="form-control" required>
                             </div>
 
+                            <!--Phone no. according to Malaysia's phone standard-->
                             <div class="form-group">
                               <label>Contact.No: </label>
-                              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$"  name="pContact" placeholder="xxx-xxx-xxxx"
+                              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$"  name="pContact" placeholder="123-456-7890"
                               class="form-control" required>
                             </div>
 
@@ -293,6 +294,8 @@ if (empty($_SESSION['pSignUp'])) {
                               <label>City</label>
                               <input type="text" class="form-control" name="pCity">
                             </div>
+
+                            <!--The tweleve states of Malaysia, though KL is default due to it being a Jinjang community-->
                             <div class="form-group col-md-4">
                               <label>State</label>
                               <select name="pState" class="form-control">
