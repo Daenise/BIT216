@@ -203,7 +203,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                             <div class="form-group">
                               <label>Contact.No: </label>
-                              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$"  name="eContact" placeholder="xxx-xxx-xxxx"
+                              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$"  name="eContact" placeholder=123-456-7890"
                               class="form-control" required>
                             </div>
 
