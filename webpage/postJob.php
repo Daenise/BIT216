@@ -51,7 +51,7 @@ include 'dbConnection.php';
                   <li><a href="homePage.php">Job History</a></li>
                   <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
-                  <li><a href="#editProfile">Edit Profile</a></li>
+                  <li><a href="#profile">Profile</a></li>
                   <li><a hre="#"> Logout </a></li>
                 </ul>
               </div>

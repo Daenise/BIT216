@@ -57,7 +57,7 @@ include '../php/dbConnection.php';
                   <li><a href="postJob.php">Post New Job</a></li>
 >>>>>>> a4953f0ec45a53aecff5b477403b8f4fd1e07b6c:webpage/homePage.php
                   <li><a href="#pendingApplication">Pending Application</a></li>
-                  <li><a href="#editProfile">Edit Profile</a></li>
+                  <li><a href="#profile">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
@@ -135,11 +135,6 @@ include '../php/dbConnection.php';
             <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
             <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
             </div>
-            <!--
-            All links in the footer should remain intact.
-            Licenseing information is available at: http://bootstraptaste.com/license/
-            You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=KnightOne
-          -->
         </div>
       </div>
     </div>
