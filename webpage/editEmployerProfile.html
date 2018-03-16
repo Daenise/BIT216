@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,11 +45,11 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#jobHistory">Job History</a></li>
-                  <li><a href="#postNewJob">Post New Job</a></li>
+                  <li><a href="homePage.php">Job History</a></li>
+                  <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
-                  <li><a href="#editProfile">Edit Profile</a></li>
-                  <li><a hre="#"> Logout </a></li>
+                  <li><a href="employerProfile.php">Profile</a></li>
+                  <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
               <!-- /.Navbar-collapse -->
@@ -62,80 +63,57 @@
 
 
     <div class="container marginbot-50">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
           <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
-            <div class="section-heading">
+            <div class="title">
               <h2 class="h-bold text-center">Edit Profile</h2>
             </div>
           </div>
-        </div>
-      </div>
 
-        <div class="card">
-
+        <div class="profile">
           <div class="profilePic">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-          <h6>Choose a profile picture...</h6>
-          <input type="file" name="profilePic"></input>
-        </div>
-
-      <!-- edit form column -->
-      <div class="personal-info">
-
-        <form class="form-horizontal" role="form">
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email :</label>
-            <div class="col-lg-8">
-              <label name="email">jennys@gmail.com </label>
-            </div>
+          <img src="../img/profile1.png" class="avatar img-circle" alt="avatar">
           </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Full Name :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="Jenny">
-            </div>
+          <div class="pDetails">
+          <div class="email">
+            <label class="col-xs-12 col-sm-5 col-md-5">Email :</label>
+            <label name="email" class="col-xs-12 col-sm-7 col-md-7 showdetail">jennys@gmail.com </label>
           </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Password :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="password" value="13345556">
-            </div>
+          <div class="fullname">
+            <label class="col-xs-12 col-sm-5 col-md-5"> Full Name : </label>
+            <div class="col-xs-12 col-sm-7 col-md-7">
+            <input class="form-control" type="text" value="Jenny" required>
+          </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Confirm Password :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="password" value="133455556">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Contact No :</label>
-            <div class="col-lg-8">
+          <div class="contact">
+            <label class="col-xs-12 col-sm-5 col-md-5">Contact No </label>
+            <div class="col-xs-12 col-sm-7 col-md-7">
               <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$"  name="contact" value="123-456-7890"
-              class="form-control" required>
+             class="form-control" required>
             </div>
-          </div>
+            </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Work Address :</label>
-            <div class="col-lg-8">
-            <input type="text" class="form-control" name="eAddress" value="No. , Jalan xxx">
+          <div class="workAdd">
+            <label class="col-xs-12 col-sm-5 col-md-5">Work Address </label>
+            <div class="col-xs-12 col-sm-7 col-md-7">
+              <input type="text" class="form-control" name="eAddress" value="No. , Jalan xxx">
             </div>
           </div>
 
           <!--The tweleve states of Malaysia, though KL is default due to it being a Jinjang community-->
-          <div class="form-group col-md-4">
-            <label>City</label>
-            <input type="text" class="form-control" name="eCity" value="Damansara">
+          <div class="city">
+            <label class="col-xs-12 col-sm-5 col-md-5">City </label>
+            <div class="col-xs-12 col-sm-7 col-md-7">
+              <input type="text" class="form-control" name="eCity" value="Damansara">
+            </div>
           </div>
-          <div class="form-group col-md-4">
-            <label>State</label>
-            <select name="eState" class="form-control">
+
+          <div class="state">
+            <label class="col-xs-12 col-sm-5 col-md-5">State </label>
+            <div class="col-xs-12 col-sm-7 col-md-7">
+              <select name="eState" class="form-control">
               <option value ="kl" selected>KL</option>
               <option value = "johor">Johor</option>
               <option value = "kedah">Kedah</option>
@@ -151,26 +129,50 @@
               <option value = "sabah">Sabah</option>
               <option value = "sarawak">Sarawak</option>
             </select>
-          </div>
-          <div class="form-group col-md-4">
-            <label>Zip</label>
-            <input type="text" class="form-control" name="eZip" value="45600">
-          </div>
 
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <br>
-              <input type="button" class="updateBtn" value="Save Changes">
-              <span></span>
-              <input type="reset" class="cancelBtn" value="Cancel">
             </div>
           </div>
 
+          <div class="zip">
+            <label class="col-xs-12 col-sm-5 col-md-5">Zip </label>
+            <div class="col-xs-12 col-sm-7 col-md-7">
+               <input type="text" class="form-control" name="eZip" value="45600">
+            </div>
+          </div>
+
+        </div>
+
+              <br>
+              <div class="row updatebutton">
+                <div class="col-xs-6 col-md-6">
+              <button name="updateBtn"> Update </button>
+            </div>
+            <div class="col-xs-6 col-md-6">
+              <a href="employerProfile.php"><button name="cancelBtn"> Cancel </button></a>
+            </div>
         </form>
       </div>
-  </div>
-</div>
-</section>
+      <br><br>
+    </div>
+
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="text-center">
+                <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+                <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
+                </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Core JavaScript Files -->
+      <script src="../js/jquery-2.1.1.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/wow.min.js"></script>
+      <script src="../js/jquery.easing.min.js"></script>
+      <script src="../js/functions.js"></script>
 </body>
 </html>

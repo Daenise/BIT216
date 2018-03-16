@@ -1,3 +1,14 @@
+<?php
+session_start();
+include '../php/dbConnection.php';
+
+$query = "SELECT * FROM users WHERE email = '$email' and
+password = '$password'";
+
+$result = mysqli_query($connection, $query);
+$row = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +58,7 @@
                   <li><a href="homePage.php">Job History</a></li>
                   <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
-                  <li><a href="#profile">Profile</a></li>
+                  <li><a href="employerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
@@ -70,7 +81,7 @@
 
         <div class="profile">
           <div class="profilePic">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+          <img src="../img/profile1.png" class="avatar img-circle" alt="avatar">
           </div>
 
           <div class="eFullname">
@@ -80,38 +91,38 @@
           <div class="pDetails">
           <div class="email">
             <label class="col-xs-12 col-sm-5 col-md-5">Email </label>
-            <label class="col-xs-12 col-sm-7 col-md-7"> : jenny@gmail.com </label>
+            <label class="col-xs-12 col-sm-7 col-md-7 showdetail" name="eEmail"> <?php echo $row['email'] ?> </label>
           </div>
 
           <div class="contact">
             <label class="col-xs-12 col-sm-5 col-md-5">Contact No </label>
-            <label class="col-xs-12 col-sm-7 col-md-7"> : 012-345-6789 </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eContact"> <?php echo $row['contactNo'] ?> </label>
             </div>
 
           <div class="workAdd">
             <label class="col-xs-12 col-sm-5 col-md-5">Work Address </label>
-            <label class="col-xs-12 col-sm-7 col-md-7"> : No.123,Jalan besar </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eAddress"> <?php echo $row['address'] ?> </label>
           </div>
 
           <div class="city">
             <label class="col-xs-12 col-sm-5 col-md-5">City </label>
-            <label class="col-xs-12 col-sm-7 col-md-7"> : Damansara </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eCity"> <?php echo $row['city'] ?> </label>
           </div>
 
           <div class="state">
             <label class="col-xs-12 col-sm-5 col-md-5">State </label>
-            <label class="col-xs-12 col-sm-7 col-md-7"> : kl </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eState"> <?php echo $row['state'] ?> </label>
           </div>
 
           <div class="zip">
             <label class="col-xs-12 col-sm-5 col-md-5">Zip </label>
-            <label class="col-xs-12 col-sm-7 col-md-7"> : 45600 </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eZip"> <?php echo $row['zip'] ?></label>
           </div>
 
         </div>
 
               <br>
-              <p><button> Edit </button></p>
+              <a href="editEmployerProfile.html"><button> Edit </button></a>
 
         </form>
       </div>

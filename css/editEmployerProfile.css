@@ -18,14 +18,15 @@
 }
 
 .profilePic {
-  position: relative;
   background-color: #000000;
-  text-align: center;
   padding: 80px;
 }
 
 .avatar {
   padding: 20px;
+  height: 300px;
+  width: 300px;
+  margin-left: 25%;
 }
 
 .eFullname {
@@ -41,9 +42,10 @@
   padding: 10px;
 }
 
-.email, .contact, .workAdd, .city, .state, .zip {
+.fullname, .email, .contact, .workAdd, .city, .state, .zip {
   padding: 50px;
 }
+
 
 button{
     border: none;
