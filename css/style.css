@@ -47,7 +47,7 @@ body {
 
 .navs ul.nav li a {
 	font-size: 14px;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
     color: #444;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -258,6 +258,10 @@ body {
   text-decoration: none;
   font-size: 30px;
   padding: 10px 20px;
+}
+
+.Pimg{
+  padding: 30px;
 }
 
 /* ===========================

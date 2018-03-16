@@ -61,6 +61,7 @@ if (empty($_SESSION['pSignUp'])) {
                   <li><a href="#about">About Us</a></li>
                   <li><a href="#services">How To Help</a></li>
                   <li><a href="#donations">Donations</a></li>
+                  <li><a href="#pastEvent">Past Events</a></li>
                   <li><a data-toggle="modal" data-target="#LogInModal"> Login </a></li>
                   <li><a data-toggle="modal" data-target="#SignUpModal"> Sign Up </a></li>
                 </ul>
@@ -620,6 +621,45 @@ if (empty($_SESSION['pSignUp'])) {
       </section>
       <!-- /Section: donations -->
 
+      <section id="pastEvent">
+        <div class="container marginbot-50">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
+                <div class="section-heading text-center">
+                  <h2 class="h-bold"> Past Events </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row Pimg">
+            <div class="col-md-6">
+              <img src="../img/img1.jpg" alt="" class="img-responsive" />
+            </div>
+            <div class="col-md-6">
+              <img src="../img/img2.jpg" alt="" class="img-responsive" />
+            </div>
+        </div>
+        <div class="row Pimg">
+          <div class="col-md-6">
+            <img src="../img/img3.jpg" alt="" class="img-responsive" />
+          </div>
+          <div class="col-md-6">
+            <img src="../img/img4.jpg" alt="" class="img-responsive" />
+          </div>
+      </div>
+      <div class="row Pimg">
+        <div class="col-md-6">
+          <img src="../img/img5.jpg" alt="" class="img-responsive" />
+        </div>
+        <div class="col-md-6">
+          <img src="../img/img6.jpg" alt="" class="img-responsive" />
+        </div>
+    </div>
+      </div>
+
+      </section>
+
       <?php
       if(isset($_SESSION['eSignUp'])){
         if($_SESSION['eSignUp'] == "failed") {
@@ -653,8 +693,7 @@ if (empty($_SESSION['pSignUp'])) {
             <div class="col-md-6 col-md-offset-3">
               <div class="text-center">
                 <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-                <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891<br/>
-                  &copy;Copyright 2015 - Knight.</p>
+                <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891</p>
                 </div>
                 <!--
                 All links in the footer should remain intact.
