@@ -19,7 +19,7 @@ if (empty($_SESSION['pSignUp'])) {
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web For Jinjang</title>
+  <title>Web For Jinjang - Impact a life, transform a community</title>
 
   <!-- Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -210,7 +210,7 @@ if (empty($_SESSION['pSignUp'])) {
                             </div>
 
                             <div class="form-group">
-                              <label>Address</label>
+                              <label>Company Address</label>
                               <input type="text" class="form-control" name="eAddress" placeholder="No. , Jalan xxx">
                             </div>
 
@@ -349,7 +349,7 @@ if (empty($_SESSION['pSignUp'])) {
           <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
             <div class="section-heading">
               <h2 class="h-bold text-center">About Jinjang Utara</h2>
-              <br><br>
+              <h3 class ="text-center">Impact a life, transform a community.</h3>
               <div class="divider-header"></div>
               <p>The entire housing was built on the city’s landfilled rubbish dump. It is currently notorious for the high crime rate, drug abuse, gang fights and conflicts. A harbor for drug addicts, alcoholics, gangsters, prostitutes and petty criminals.
                 Jinjang Utara is littered with dilapidated rumah transit (supposed to be temporary housing). Currently, housing more than 2000 people. These are forgotten people who became disillusioned and embittered. The inhabitants waited for 40 years to date, to be relocated to their new residence under Projek Perumahan (PPR) which has yet to happen. This is 38 years later than the promised duration by the government. Even if they are offered low cost housing tomorrow, they will not be able to afford it as they can hardly afford the RM40 per month rent even now. The average combined income per month for each family is less than RM1000.
