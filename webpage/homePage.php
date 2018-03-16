@@ -1,11 +1,17 @@
+<?php
+session_start();
+include '../php/dbConnection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web For Jinjang</title>
-
+<?php
+  echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
+?>
   <!-- Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -43,11 +49,16 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD:webpage/homePage.html
                   <li><a href="#jobHistory">Job History</a></li>
                   <li><a href="#postNewJob">Post New Job</a></li>
+=======
+                  <li><a href="homePage.php">Job History</a></li>
+                  <li><a href="postJob.php">Post New Job</a></li>
+>>>>>>> a4953f0ec45a53aecff5b477403b8f4fd1e07b6c:webpage/homePage.php
                   <li><a href="#pendingApplication">Pending Application</a></li>
                   <li><a href="#editProfile">Edit Profile</a></li>
-                  <li><a hre="#"> Logout </a></li>
+                  <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
               <!-- /.Navbar-collapse -->
@@ -77,12 +88,24 @@
     </section>
 
     <div id="price">
-  <!--price tab-->
-  <div class="plan">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Basic Wash</h3>
-        <div class="price">$25<span>/PER CAR</span>
+
+<!--price tab-->
+  <?php
+  $email = $_SESSION['email'];
+  $query = "SELECT * FROM job WHERE employerEmail = '$email'";
+  $result = mysqli_query($connection, $query);
+
+  if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)){
+
+    }
+  }
+
+  /*<div class="plan">
+   <div class="plan-inner">
+     <div class="entry-title">
+       <h3>Basic Wash</h3>
+       <div class="price">$25<span>/PER CAR</span>
         </div>
       </div>
       <div class="entry-content">
@@ -98,77 +121,8 @@
         <a href="#">Order Now</a>
       </div>
     </div>
-  </div>
-  <!-- end of price tab-->
-  <!--price tab-->
-  <div class="plan basic">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Express Wash</h3>
-        <div class="price">$50<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>1x</strong> option 1</li>
-          <li><strong>2x</strong> option 2</li>
-          <li><strong>3x</strong> option 3</li>
-          <li><strong>Free</strong> option 4</li>
-          <li><strong>Unlimited</strong> option 5</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>
-  <!-- end of price tab-->
-  <!--price tab-->
-  <div class="plan standard">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Super Wash</h3>
-        <div class="price">$75<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>2x</strong> Free Entrance</li>
-          <li><strong>Free</strong> Snacks</li>
-          <li><strong>Custom</strong> Swags</li>
-          <li><strong>2x</strong> Certificate</li>
-          <li><strong>Free</strong> Wifi</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>
-  <!-- end of price tab-->
-  <!--price tab-->
-  <div class="plan ultimite">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Unlimited Wash</h3>
-        <div class="price">$100<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>1x</strong> option 1</li>
-          <li><strong>2x</strong> option 2</li>
-          <li><strong>3x</strong> option 3</li>
-          <li><strong>Free</strong> option 4</li>
-          <li><strong>Unlimited</strong> option 5</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>
-  <!-- end of price tab-->
+  </div>*/
+?>
 </div>
 
 
