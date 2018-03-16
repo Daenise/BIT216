@@ -351,6 +351,7 @@ if (empty($_SESSION['pSignUp'])) {
             <div class="section-heading">
               <h2 class="h-bold text-center">About Jinjang Utara</h2>
               <h3 class ="text-center">Impact a life, transform a community.</h3>
+              <br>
               <div class="divider-header"></div>
               <p>The entire housing was built on the city’s landfilled rubbish dump. It is currently notorious for the high crime rate, drug abuse, gang fights and conflicts. A harbor for drug addicts, alcoholics, gangsters, prostitutes and petty criminals.
                 Jinjang Utara is littered with dilapidated rumah transit (supposed to be temporary housing). Currently, housing more than 2000 people. These are forgotten people who became disillusioned and embittered. The inhabitants waited for 40 years to date, to be relocated to their new residence under Projek Perumahan (PPR) which has yet to happen. This is 38 years later than the promised duration by the government. Even if they are offered low cost housing tomorrow, they will not be able to afford it as they can hardly afford the RM40 per month rent even now. The average combined income per month for each family is less than RM1000.
