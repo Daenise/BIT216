@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+//To prevent variables form storing null values
 if (empty($_SESSION['eSignUp'])) {
   $_SESSION['tSignUp'] = "empty";
 }
@@ -201,9 +202,10 @@ if (empty($_SESSION['pSignUp'])) {
                               class="form-control" required>
                             </div>
 
+                            <!--Phone no. according to Malaysia's phone standard-->
                             <div class="form-group">
                               <label>Contact.No: </label>
-                              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$"  name="eContact" placeholder=123-456-7890"
+                              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$"  name="eContact" placeholder="123-456-7890"
                               class="form-control" required>
                             </div>
 
@@ -211,6 +213,8 @@ if (empty($_SESSION['pSignUp'])) {
                               <label>Address</label>
                               <input type="text" class="form-control" name="eAddress" placeholder="No. , Jalan xxx">
                             </div>
+
+                            <!--The tweleve states of Malaysia, though KL is default due to it being a Jinjang community-->
                             <div class="form-group col-md-4">
                               <label>City</label>
                               <input type="text" class="form-control" name="eCity">
