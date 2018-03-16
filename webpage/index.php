@@ -122,7 +122,7 @@ if (empty($_SESSION['pSignUp'])) {
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-body">
-            <form class="form-login" method="post" action="#">
+            <form class="form-login" method="post" action="../php/logIn.php">
 
               <div class="form-log-in-with-email">
 

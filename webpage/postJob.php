@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'dbConnection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +48,8 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active"><a href="#jobHistory">Job History</a></li>
-                  <li><a href="#postNewJob">Post New Job</a></li>
+                  <li><a href="homePage.php">Job History</a></li>
+                  <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
                   <li><a href="#editProfile">Edit Profile</a></li>
                   <li><a hre="#"> Logout </a></li>
@@ -66,9 +71,7 @@
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
               <div class="heading text-center">
-                <h2 class="h-bold">Job History</h2>
-
-
+                <h2 class="h-bold">Post a new job</h2>
               </div>
             </div>
           </div>
@@ -76,102 +79,63 @@
       </div>
     </section>
 
-    <div id="price">
-  <!--price tab-->
-  <div class="plan">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Basic Wash</h3>
-        <div class="price">$25<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>1x</strong> option 1</li>
-          <li><strong>2x</strong> option 2</li>
-          <li><strong>3x</strong> option 3</li>
-          <li><strong>Free</strong> option 4</li>
-          <li><strong>Unlimited</strong> option 5</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>
-  <!-- end of price tab-->
-  <!--price tab-->
-  <div class="plan basic">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Express Wash</h3>
-        <div class="price">$50<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>1x</strong> option 1</li>
-          <li><strong>2x</strong> option 2</li>
-          <li><strong>3x</strong> option 3</li>
-          <li><strong>Free</strong> option 4</li>
-          <li><strong>Unlimited</strong> option 5</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>
-  <!-- end of price tab-->
-  <!--price tab-->
-  <div class="plan standard">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Super Wash</h3>
-        <div class="price">$75<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>2x</strong> Free Entrance</li>
-          <li><strong>Free</strong> Snacks</li>
-          <li><strong>Custom</strong> Swags</li>
-          <li><strong>2x</strong> Certificate</li>
-          <li><strong>Free</strong> Wifi</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>
-  <!-- end of price tab-->
-  <!--price tab-->
-  <div class="plan ultimite">
-    <div class="plan-inner">
-      <div class="entry-title">
-        <h3>Unlimited Wash</h3>
-        <div class="price">$100<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>1x</strong> option 1</li>
-          <li><strong>2x</strong> option 2</li>
-          <li><strong>3x</strong> option 3</li>
-          <li><strong>Free</strong> option 4</li>
-          <li><strong>Unlimited</strong> option 5</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>
-  <!-- end of price tab-->
-</div>
+    <div>
+      <form name="postJobForm" action="../php/newJob.php" method="post">
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-sm-offset-2 col-sm-8">
 
+            <div class="form-group">
+              <label>Job Title: </label>
+              <input type="text" name="jobTitle" placeholder=""
+              class="form-control" required>
+            </div>
 
+            <div class="form-group">
+              <label>Job Scope: </label>
+              <input type="text" name="jobScope" placeholder="Description of your job..."
+              class="form-control"
+              required>
+            </div>
+
+            <div class="form-group">
+              <label>Salary per hour: </label>
+              <input type="text" name="jobSalary" placeholder=""
+              class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>Date: </label>
+              <input type="date" name="date"
+              class="form-control" required>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>StartTime:</label>
+              <input type="time" name="startTime" class="form-control" required>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>EndTime:</label>
+              <input type="time" name="endTime" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" class="form-control" name="jobLocation" required>
+            </div>
+          </div>
+        </div>
+
+          <div style="text-align: center;">
+
+            <button type="submit" value="Submit">Submit</button>
+
+          </div>
+
+      </form>
+    </div>
+
+<br>
 
 <footer>
     <div class="container">
