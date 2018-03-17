@@ -52,7 +52,7 @@ include '../php/dbConnection.php';
                   <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
                   <li><a href="#profile">Profile</a></li>
-                  <li><a hre="#"> Logout </a></li>
+                  <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
               <!-- /.Navbar-collapse -->
@@ -151,7 +151,7 @@ include '../php/dbConnection.php';
     </div>
 
     <br>
-    
+
     <footer>
       <div class="container">
         <div class="row">

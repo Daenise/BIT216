@@ -96,7 +96,7 @@ include '../php/dbConnection.php';
                   <th style="text-align:center">EndTime</th>
                   <th style="text-align:center">Location</th>
                   <th style="text-align:center">Status</th>
-                  <th style="text-align:center">PartTimer's Email</th>
+                  <th style="text-align:center">Employer's Email</th>
                 </tr>
               </thead>
               <tbody>
