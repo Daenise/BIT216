@@ -104,7 +104,7 @@ if(mysqli_num_rows($result) > 0){
               <ul>";
         echo "<li>" . $row['scope'] . "</li>";
         echo "<li>" . $row['date'] . "</li>";
-        echo "<li>" . $row['scope'] . "</li>";
+        echo "<li>" . $row['startTime'] . "~" . $row['endTime'] . "</li>";
         echo "<li>" . $row['location'] . "</li>";
         echo "<li>" . $row['skill'] . "</li>";
         echo "</ul>
