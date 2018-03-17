@@ -316,9 +316,22 @@ if (empty($_SESSION['pSignUp'])) {
                                 <option value = "sarawak">Sarawak</option>
                               </select>
                             </div>
+
                             <div class="form-group col-md-4">
                               <label>Zip</label>
                               <input type="text" class="form-control" name="pZip">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Choose a skill:</label>
+                              <select name="pSkill" class="form-control">
+                                <option value ="housework">Housework</option>
+                                <option value = "gardening">Gardening</option>
+                                <option value = "catering">Catering</option>
+                                <option value = "education">Education</option>
+                                <option value = "transportation">Transportation</option>
+                                <option value = "babysitting">Baby Sitting</option>
+                              </select>
                             </div>
 
                           </div>

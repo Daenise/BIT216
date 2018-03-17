@@ -29,8 +29,8 @@ if (mysqli_num_rows($result) > 0) {
   header("Location: ../webpage/index.php");
 }
 else {
-  $query2 = "INSERT INTO  users (fullName, email, password, contact, address, city, state, zip, type) VALUES
-  ('$fullName','$email','$password','$contact','$address','$city','$state','$zip','employer')";
+  $query2 = "INSERT INTO  employer (email, password, fullName, contactNo, address, city, state, zip, ) VALUES
+  ('$email','$password','$fullNmae','$contact','$address','$city','$state','$zip')";
   mysqli_query($connection, $query2);
   $_SESSION['eSignUp'] = "success";
   header("Location: ../webpage/index.php");
