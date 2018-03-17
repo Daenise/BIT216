@@ -42,7 +42,7 @@
   padding: 10px;
 }
 
-.fullname, .email, .contact, .workAdd, .city, .state, .zip {
+.fullname, .email, .contact, .workAdd, .city, .state, .zip .pssd{
   padding: 50px;
 }
 
