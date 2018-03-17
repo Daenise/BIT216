@@ -48,10 +48,10 @@ include '../php/dbConnection.php';
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="homePage.php">Job History</a></li>
+                  <li><a href="ehomePage.php">Job History</a></li>
                   <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
-                  <li><a href="#profile">Profile</a></li>
+                  <li><a href="employerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
