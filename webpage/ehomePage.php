@@ -49,7 +49,7 @@ include '../php/dbConnection.php';
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="homePage.php">Job History</a></li>
+                  <li><a href="ehomePage.php">Job History</a></li>
                   <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
                   <li><a href="#profile">Profile</a></li>
@@ -129,46 +129,6 @@ include '../php/dbConnection.php';
           </div>
         </div>
       </div>
-
-
-
-<div id="price">
-
-<!--price tab-->
-  <?php
-  $email = $_SESSION['email'];
-  $query = "SELECT * FROM job WHERE employerEmail = '$email'";
-  $result = mysqli_query($connection, $query);
-
-  if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)){
-
-    }
-  }
-
-  /*<div class="plan">
-   <div class="plan-inner">
-     <div class="entry-title">
-       <h3>Basic Wash</h3>
-       <div class="price">$25<span>/PER CAR</span>
-        </div>
-      </div>
-      <div class="entry-content">
-        <ul>
-          <li><strong>1x</strong> option 1</li>
-          <li><strong>2x</strong> option 2</li>
-          <li><strong>3x</strong> option 3</li>
-          <li><strong>Free</strong> option 4</li>
-          <li><strong>Unlimited</strong> option 5</li>
-        </ul>
-      </div>
-      <div class="btn">
-        <a href="#">Order Now</a>
-      </div>
-    </div>
-  </div>*/
-?>
-</div>
 
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
