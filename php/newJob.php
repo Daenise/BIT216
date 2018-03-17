@@ -8,7 +8,8 @@ $salary = stripcslashes($_POST['jobSalary']);
 $date = stripcslashes($_POST['date']);
 $startTime = stripcslashes($_POST['startTime']);
 $endTime = stripcslashes($_POST['endTime']);
-$location = stripcslashes($_POST['jobLocation']);
+$location = stripcslashes($_POST['jLocation']);
+$skill = stripcslashes($_POST['jSkill']);
 $empEmail = $_SESSION['email'];
 
 $title = mysqli_real_escape_string($connection, $title);
@@ -18,9 +19,10 @@ $date = mysqli_real_escape_string($connection, $date);
 $startTime = mysqli_real_escape_string($connection, $startTime);
 $endTime = mysqli_real_escape_string($connection, $endTime);
 $location = mysqli_real_escape_string($connection, $location);
+$skill = mysqli_real_escape_string($connection, $skill);
 
-$query = "INSERT INTO job(title, scope, salary, date, startTime, endTime, location, status, employerEmail, partTimerEmail) VALUES
-('$title','$scope','$salary','$date','$startTime', '$endTime','$location', 'available','$empEmail','empty')";
+$query = "INSERT INTO job(title, scope, salary, date, startTime, endTime, location,skill, status, employerEmail, partTimerEmail) VALUES
+('$title','$scope','$salary','$date','$startTime', '$endTime', '$location', '$skill', 'available', '$empEmail', 'empty')";
 mysqli_query($connection, $query);
 
 mysqli_close($connection);

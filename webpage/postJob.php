@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'dbConnection.php';
+include '../php/dbConnection.php';
 ?>
 
 <!DOCTYPE html>
@@ -119,48 +119,63 @@ include 'dbConnection.php';
               <input type="time" name="endTime" class="form-control" required>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label>Location</label>
-              <input type="text" class="form-control" name="jobLocation" required>
+              <select name="jLocation" class="form-control">
+                <option value ="home">At Home</option>
+                <option value = "work">Work Address</option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Skill Set Preference</label>
+              <select name="jSkill" class="form-control">
+                <option value ="housework">Housework</option>
+                <option value = "gardening">Gardening</option>
+                <option value = "catering">Catering</option>
+                <option value = "education">Education</option>
+                <option value = "transportation">Transportation</option>
+                <option value = "babysitting">Baby Sitting</option>
+              </select>
             </div>
           </div>
         </div>
 
-          <div style="text-align: center;">
+        <div style="text-align: center;">
 
-            <button type="submit" value="Submit">Submit</button>
+          <button type="submit" value="Submit">Submit</button>
 
-          </div>
+        </div>
 
       </form>
     </div>
 
-<br>
-
-<footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="text-center">
-            <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-            <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
-            </div>
-            <!--
-            All links in the footer should remain intact.
-            Licenseing information is available at: http://bootstraptaste.com/license/
-            You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=KnightOne
-          -->
+    <br>
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="text-center">
+              <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+              <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
+              </div>
+              <!--
+              All links in the footer should remain intact.
+              Licenseing information is available at: http://bootstraptaste.com/license/
+              You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=KnightOne
+            -->
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Core JavaScript Files -->
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/wow.min.js"></script>
-  <script src="../js/jquery.easing.min.js"></script>
-  <script src="../js/functions.js"></script>
+    <!-- Core JavaScript Files -->
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
+    <script src="../js/functions.js"></script>
 
-</body>
-</html>
+  </body>
+  </html>

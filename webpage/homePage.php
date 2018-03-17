@@ -49,13 +49,8 @@ include '../php/dbConnection.php';
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD:webpage/homePage.html
-                  <li><a href="#jobHistory">Job History</a></li>
-                  <li><a href="#postNewJob">Post New Job</a></li>
-=======
                   <li><a href="homePage.php">Job History</a></li>
                   <li><a href="postJob.php">Post New Job</a></li>
->>>>>>> a4953f0ec45a53aecff5b477403b8f4fd1e07b6c:webpage/homePage.php
                   <li><a href="#pendingApplication">Pending Application</a></li>
                   <li><a href="#profile">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
@@ -87,7 +82,57 @@ include '../php/dbConnection.php';
       </div>
     </section>
 
-    <div id="price">
+
+    <div class ="row">
+        <div class = "col-xs-12">
+          <div id="myTable" class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr style="background-color: #162b4c; color: #fff;">
+                  <th style="text-align:center">Title</th>
+                  <th style="text-align:center">Salary</th>
+                  <th style="text-align:center">Date</th>
+                  <th style="text-align:center">StartTime</th>
+                  <th style="text-align:center">EndTime</th>
+                  <th style="text-align:center">Location</th>
+                  <th style="text-align:center">Status</th>
+                  <th style="text-align:center">PartTimer's Email</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <?php
+
+              $query = "SELECT * FROM employer, job
+                        WHERE job.status = 'AVAILABLE'
+                        AND employer.email = job.employerEmail";
+              $result = mysqli_query($connection, $query);
+
+              if(mysqli_num_rows($result) > 0){
+
+                while($row = mysqli_fetch_assoc($result)){
+                  echo "<tr>";
+                  echo "<td style='text-align:center'>" .$row["title"] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['date'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['startTime'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['endTime'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['location'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['status'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
+                  echo "</tr>";
+                }
+              }
+              ?>
+              </tbody>
+            </table><br/>
+          </div>
+        </div>
+      </div>
+
+
+
+<div id="price">
 
 <!--price tab-->
   <?php
@@ -124,21 +169,6 @@ include '../php/dbConnection.php';
   </div>*/
 ?>
 </div>
-
-
-
-<footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="text-center">
-            <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-            <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
-            </div>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
