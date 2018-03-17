@@ -22,8 +22,7 @@ $state = mysqli_real_escape_string($connection, $state);
 $zip = mysqli_real_escape_string($connection, $zip);
 $skill = mysqli_real_escape_string($connection, $skill);
 
-
-$query = "SELECT * FROM users WHERE email = '$email'";
+$query = "SELECT * FROM parttimer WHERE email = '$email'";
 $result = mysqli_query($connection, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -31,8 +30,9 @@ if (mysqli_num_rows($result) > 0) {
   header("Location: ../webpage/index.php");
 }
 else {
-  $query2 = "INSERT INTO  parttimer (email, password,fullName, contactNo, address, city, state, zip, skillSet) VALUES
-  ('$email','$pasword','$fullName','$contact','$address','$city','$state','$zip','$skill')";
+  $query2 = "INSERT INTO parttimer (email, password, fullName, contactNo, address, city, state, zip, skillSet) VALUES
+  ('$email','$password','$fullName','$contact','$address','$city','$state','$zip','$skill')";
+
   mysqli_query($connection, $query2);
   $_SESSION['pSignUp'] = "success";
   header("Location: ../webpage/index.php");

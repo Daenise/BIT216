@@ -20,18 +20,20 @@ $city = mysqli_real_escape_string($connection, $city);
 $state = mysqli_real_escape_string($connection, $state);
 $zip = mysqli_real_escape_string($connection, $zip);
 
-$query = "SELECT * FROM users WHERE email = '$email'";
+$query = "SELECT * FROM employer WHERE email = '$email'";
 $result = mysqli_query($connection, $query);
 
 if (mysqli_num_rows($result) > 0) {
-  echo "<script>alert('sign up failed');</script>";
   $_SESSION['eSignUp'] = "failed";
   header("Location: ../webpage/index.php");
 }
 else {
-  $query2 = "INSERT INTO  employer (email, password, fullName, contactNo, address, city, state, zip, ) VALUES
-  ('$email','$password','$fullNmae','$contact','$address','$city','$state','$zip')";
+
+  $query2 = "INSERT INTO employer (email, password, fullName, contactNo, address, city, state, zip) VALUES
+  ('$email','$password','$fullName','$contact','$address','$city','$state','$zip')";
+
   mysqli_query($connection, $query2);
+
   $_SESSION['eSignUp'] = "success";
   header("Location: ../webpage/index.php");
 }

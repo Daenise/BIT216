@@ -164,23 +164,27 @@ if (empty($_SESSION['pSignUp'])) {
 
     <div class="modal fade" id="SignUpModal" role="dialog">
       <div class="modal-dialog">
+
         <!-- Modal content-->
         <div class="modal-content">
+
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 style="text-align: center;" class="modal-title">Sign Up</h4>
           </div>
+
           <div class="modal-body">
             <div class="container">
               <div class = "row">
                 <div class = "col-xs-12 col-sm-6">
                   <ul class="nav nav-tabs nav-justified">
-                    <li class="active"><a data-toggle="tab" href="#employee">Employee</a></li>
+                    <li class="active"><a data-toggle="tab" href="#employee">Employer</a></li>
                     <li><a data-toggle="tab" href="#partTimer">Part-Timer</a></li>
                   </ul>
                   <div class="tab-content">
                     <div id="employee" class="tab-pane fade in active">
-                      <form name="EsignUpForm" onsubmit ='true' action="../php/employerSignUp.php" method="post">
+
+                      <form name="EsignUpForm" action="../php/employerSignUp.php" method="post">
                         <div class="row" style="margin-top: 50px;">
                           <div class="col-sm-offset-2 col-sm-8">
 
@@ -193,8 +197,7 @@ if (empty($_SESSION['pSignUp'])) {
                             <div class="form-group">
                               <label>Email: </label>
                               <input type="email" name="eEmail" placeholder="example@mail.com"
-                              class="form-control"
-                              required>
+                              class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -239,6 +242,7 @@ if (empty($_SESSION['pSignUp'])) {
                                 <option value = "sarawak">Sarawak</option>
                               </select>
                             </div>
+
                             <div class="form-group col-md-4">
                               <label>Zip</label>
                               <input type="text" class="form-control" name="eZip">
@@ -246,6 +250,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                           </div>
                         </div>
+
                         <div class="modal-footer">
                           <div style="text-align: center;">
                             <br />
@@ -253,7 +258,9 @@ if (empty($_SESSION['pSignUp'])) {
                             id="eSubmit" class="btn btn-default" required>
                           </div>
                         </div>
+
                       </form>
+
                     </div>
 
                     <div id="partTimer" class="tab-pane fade">

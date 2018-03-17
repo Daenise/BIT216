@@ -8,7 +8,7 @@ $password = stripcslashes($_POST['password']);
 $email = mysqli_real_escape_string($connection, $email);
 $password = mysqli_real_escape_string($connection, $password);
 
-$query = "SELECT * FROM users WHERE email = '$email' and
+$query = "SELECT * FROM employer WHERE email = '$email' and
 password = '$password'";
 
 $result = mysqli_query($connection, $query);
