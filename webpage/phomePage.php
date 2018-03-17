@@ -52,7 +52,7 @@ include '../php/dbConnection.php';
                   <li><a href="phomePage.php">Job History</a></li>
                   <li><a href="searchJob.php">Search Jobs</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
-                  <li><a href="employerProfile.php">Profile</a></li>
+                  <li><a href="part-timerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
