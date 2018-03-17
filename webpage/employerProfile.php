@@ -2,11 +2,13 @@
 session_start();
 include '../php/dbConnection.php';
 
-$query = "SELECT * FROM users WHERE email = '$email' and
-password = '$password'";
+$email = $_SESSION['email'];
+
+$query = "SELECT * FROM employer WHERE email= '$email'";
 
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -85,44 +87,44 @@ $row = mysqli_fetch_assoc($result);
           </div>
 
           <div class="eFullname">
-            <label> Jenny Chin</label>
+            <label> <?php echo $row['fullName'] ?></label>
           </div>
 
           <div class="pDetails">
           <div class="email">
             <label class="col-xs-12 col-sm-5 col-md-5">Email </label>
-            <label class="col-xs-12 col-sm-7 col-md-7 showdetail" name="eEmail"> <?php echo $row['email'] ?> </label>
+            <label class="col-xs-12 col-sm-7 col-md-7 showdetail" name="eEmail"> : <?php echo $row['email'] ?> </label>
           </div>
 
           <div class="contact">
             <label class="col-xs-12 col-sm-5 col-md-5">Contact No </label>
-            <label class="col-xs-12 col-sm-7 col-md-7" name="eContact"> <?php echo $row['contactNo'] ?> </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eContact"> : <?php echo $row['contactNo'] ?> </label>
             </div>
 
           <div class="workAdd">
             <label class="col-xs-12 col-sm-5 col-md-5">Work Address </label>
-            <label class="col-xs-12 col-sm-7 col-md-7" name="eAddress"> <?php echo $row['address'] ?> </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eAddress"> : <?php echo $row['address'] ?> </label>
           </div>
 
           <div class="city">
             <label class="col-xs-12 col-sm-5 col-md-5">City </label>
-            <label class="col-xs-12 col-sm-7 col-md-7" name="eCity"> <?php echo $row['city'] ?> </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eCity"> : <?php echo $row['city'] ?> </label>
           </div>
 
           <div class="state">
             <label class="col-xs-12 col-sm-5 col-md-5">State </label>
-            <label class="col-xs-12 col-sm-7 col-md-7" name="eState"> <?php echo $row['state'] ?> </label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eState"> : <?php echo $row['state'] ?> </label>
           </div>
 
           <div class="zip">
             <label class="col-xs-12 col-sm-5 col-md-5">Zip </label>
-            <label class="col-xs-12 col-sm-7 col-md-7" name="eZip"> <?php echo $row['zip'] ?></label>
+            <label class="col-xs-12 col-sm-7 col-md-7" name="eZip"> : <?php echo $row['zip'] ?></label>
           </div>
 
         </div>
 
               <br>
-              <a href="editEmployerProfile.html"><button> Edit </button></a>
+              <a href="editEmployerProfile.php"><button> Edit </button></a>
 
         </form>
       </div>
