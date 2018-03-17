@@ -1,32 +1,31 @@
 <?php
 session_start();
-include '../php/dbConnection.php';
-
-if (!$connection){
-  die("Could not connect to database.");
-}
+include 'dbConnection.php';
 
 $email = $_SESSION['email'];
-$fullName = $_POST['eFullName'];
-$password = $_POST['ePassword'];
-$contact = $_POST['eContact'];
-$address = $_POST['eAddress'];
-$city = $_POST['eCity'];
-$state = $_POST['eState'];
-$zip = $_POST['eZip'];
+$fullName = stripcslashes($_POST['eFullName']);
+$password = stripcslashes($_POST['ePassword']);
+$contact = stripcslashes($_POST['eContact']);
+$address = stripcslashes($_POST['eAddress']);
+$city = stripcslashes($_POST['eCity']);
+$state = stripcslashes($_POST['eState']);
+$zip = stripcslashes($_POST['eZip']);
 
-$updateE= "UPDATE employer SET fullName='$fullName', password='$password', contactNo='$contact',address='$address', city='$city', state='$state', zip='$zip' WHERE email='$email'";
+$fullName = mysqli_real_escape_string($connection, $fullName);
+$password = mysqli_real_escape_string($connection, $password);
+$contact = mysqli_real_escape_string($connection, $contact);
+$address = mysqli_real_escape_string($connection, $address);
+$city = mysqli_real_escape_string($connection, $city);
+$state = mysqli_real_escape_string($connection, $state);
+$zip = mysqli_real_escape_string($connection, $zip);
 
-$result = mysqli_query($connection,$updateE);
+$updateE= "UPDATE employer
+           SET fullName = '$fullName', password = '$password', contactNo = '$contact', address = '$address', city = '$city', state = '$state', zip = '$zip'
+           WHERE email = '$email'";
 
-if (mysqli_query($connection, $result)) {
-  echo "Your profile successfully updated.";
-  //header("Location: ../webpage/employerProfile.php");
-}
-else {
-  echo "Error updating record :".mysqli_error($connection);
-  //header("Location: ../webpage/employerProfile.php");
-}
+$result = mysqli_query($connection, $updateE);
+
+header("Location: ../webpage/employerProfile.php");
 
 mysqli_close($connection);
 ?>

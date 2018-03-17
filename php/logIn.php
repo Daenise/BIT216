@@ -23,7 +23,7 @@ if ($row['email'] == $email && $row['password'] == $password) {
   header('Location: ../webpage/ehomePage.php');
 }
 
-/*
+
 else{
   $query2 = "SELECT * FROM parttimer WHERE email = '$email' and
   password = '$password'";
@@ -39,13 +39,12 @@ else{
 
     header('Location: ../webpage/phomePage.php');
   }
-  */
 
   else {
     header('Location: ../webpage/index.php');
     $_SESSION['email'] = "failed";
   }
-
+}
 
 
 
