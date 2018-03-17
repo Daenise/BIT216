@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2018 at 06:09 AM
+-- Generation Time: Mar 17, 2018 at 10:41 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -31,13 +31,22 @@ SET time_zone = "+00:00";
 CREATE TABLE `employer` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `fulName` varchar(255) NOT NULL,
+  `fullName` varchar(255) NOT NULL,
   `contactNo` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `zip` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `employer`
+--
+
+INSERT INTO `employer` (`email`, `password`, `fullName`, `contactNo`, `address`, `city`, `state`, `zip`) VALUES
+('employer1@email.com', '111', 'employer1', '111-111-1111', '11, 12,12334545', 'Jinjang', 'selangor', '68100'),
+('employer3@email.com', '55555', 'employer3', '111-111-1115', 'Kantin Sek Keb Bbsb Jln Kuala 47000 Sungai Buloh Sungai Buloh 47000 Malaysia Sungai Buloh 47000 Mala', 'Jinjang', 'kl', '68100'),
+('employer5@email.com', '55555', 'employe5', '222-333-4444', '1234243564', 'Jinjang', 'kl', '68100');
 
 -- --------------------------------------------------------
 
@@ -46,6 +55,7 @@ CREATE TABLE `employer` (
 --
 
 CREATE TABLE `job` (
+  `jobID` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `scope` varchar(255) NOT NULL,
   `salary` int(10) NOT NULL,
@@ -53,6 +63,7 @@ CREATE TABLE `job` (
   `startTime` time NOT NULL,
   `endTime` time NOT NULL,
   `location` varchar(255) NOT NULL,
+  `skill` varchar(255) NOT NULL,
   `status` varchar(50) NOT NULL,
   `employerEmail` varchar(255) NOT NULL,
   `partTimerEmail` varchar(255) NOT NULL
@@ -62,9 +73,9 @@ CREATE TABLE `job` (
 -- Dumping data for table `job`
 --
 
-INSERT INTO `job` (`title`, `scope`, `salary`, `date`, `startTime`, `endTime`, `location`, `status`, `employerEmail`, `partTimerEmail`) VALUES
-('title1', 'wing it out', 15, '2018-05-11', '00:00:00', '15:00:00', 'Home', 'available', 'a@email.com', 'empty'),
-('title1', 'wing it out', 15, '2018-05-11', '01:30:00', '15:00:00', 'Home', 'available', 'a@email.com', 'empty');
+INSERT INTO `job` (`jobID`, `title`, `scope`, `salary`, `date`, `startTime`, `endTime`, `location`, `skill`, `status`, `employerEmail`, `partTimerEmail`) VALUES
+(4, 'job1', 'unhappy', 25, '2018-12-11', '13:30:00', '15:03:00', '', '', 'available', 'employer1@email.com', 'empty'),
+(5, 'job2', 'haha', 12, '2018-03-02', '01:45:00', '14:03:00', 'home', 'gardening', 'available', 'employer1@email.com', 'empty');
 
 -- --------------------------------------------------------
 
@@ -84,41 +95,45 @@ CREATE TABLE `parttimer` (
   `skillSet` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `users`
+-- Dumping data for table `parttimer`
 --
 
-CREATE TABLE `users` (
-  `fullName` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `contact` varchar(12) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `state` varchar(50) NOT NULL,
-  `zip` varchar(5) NOT NULL,
-  `type` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`fullName`, `email`, `password`, `contact`, `address`, `city`, `state`, `zip`, `type`) VALUES
-('asdf', 'a@email.com', '12345', '017-257-5815', '11, Jalan 11', 'Jinjang', 'kl', '68100', 'employer'),
-('bbbb', 'ghj@email.com', '34567', '123-456-7890', '11  345', '112', 'kl', '55555', 'partTimer');
+INSERT INTO `parttimer` (`email`, `password`, `fullName`, `contactNo`, `address`, `city`, `state`, `zip`, `skillSet`) VALUES
+('parttimer2@mail.com', '', 'parttimer2', '333-333-3333', '12345', '12435', 'kl', '77777', 'gardening'),
+('parttimer@mail.com', '', 'parttimer1', '111-222-5555', '11, 12,12334545', '12', 'kl', '12345', 'housework');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table `employer`
 --
-ALTER TABLE `users`
+ALTER TABLE `employer`
   ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `job`
+--
+ALTER TABLE `job`
+  ADD PRIMARY KEY (`jobID`);
+
+--
+-- Indexes for table `parttimer`
+--
+ALTER TABLE `parttimer`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `job`
+--
+ALTER TABLE `job`
+  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
