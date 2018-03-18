@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2018 at 10:41 AM
+-- Generation Time: Mar 18, 2018 at 12:26 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -44,9 +44,8 @@ CREATE TABLE `employer` (
 --
 
 INSERT INTO `employer` (`email`, `password`, `fullName`, `contactNo`, `address`, `city`, `state`, `zip`) VALUES
-('employer1@email.com', '111', 'employer1', '111-111-1111', '11, 12,12334545', 'Jinjang', 'selangor', '68100'),
-('employer3@email.com', '55555', 'employer3', '111-111-1115', 'Kantin Sek Keb Bbsb Jln Kuala 47000 Sungai Buloh Sungai Buloh 47000 Malaysia Sungai Buloh 47000 Mala', 'Jinjang', 'kl', '68100'),
-('employer5@email.com', '55555', 'employe5', '222-333-4444', '1234243564', 'Jinjang', 'kl', '68100');
+('employee2@email.com', '111', 'employee2', '222-222-2222', '222', '222', 'kl', '22222'),
+('employer1@email.com', '888888', 'employer1', '666-888-9999', '11,', 'Jinjang', 'kl', '68100');
 
 -- --------------------------------------------------------
 
@@ -74,8 +73,8 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`jobID`, `title`, `scope`, `salary`, `date`, `startTime`, `endTime`, `location`, `skill`, `status`, `employerEmail`, `partTimerEmail`) VALUES
-(4, 'job1', 'unhappy', 25, '2018-12-11', '13:30:00', '15:03:00', '', '', 'available', 'employer1@email.com', 'empty'),
-(5, 'job2', 'haha', 12, '2018-03-02', '01:45:00', '14:03:00', 'home', 'gardening', 'available', 'employer1@email.com', 'empty');
+(5, 'trash taking', 'ggggg', 78, '2019-08-08', '02:22:00', '15:33:00', 'home', 'gardening', 'available', 'employer1@email.com', 'empty'),
+(6, 'spring clean', 'clean up of a home', 15, '2018-12-11', '13:30:00', '15:30:00', 'work', 'housework', 'available', 'employer1@email.com', 'empty');
 
 -- --------------------------------------------------------
 
@@ -100,8 +99,8 @@ CREATE TABLE `parttimer` (
 --
 
 INSERT INTO `parttimer` (`email`, `password`, `fullName`, `contactNo`, `address`, `city`, `state`, `zip`, `skillSet`) VALUES
-('parttimer2@mail.com', '', 'parttimer2', '333-333-3333', '12345', '12435', 'kl', '77777', 'gardening'),
-('parttimer@mail.com', '', 'parttimer1', '111-222-5555', '11, 12,12334545', '12', 'kl', '12345', 'housework');
+('parttimer1@email.com', '111', 'parttimer1', '222-222-2222', '11 12 1233', 'lala', 'kl', '68100', 'catering'),
+('parttimer2@email.com', '22222', 'parttimer2', '222-222-2222', '222', '222', 'kl', '222222', 'gardening');
 
 --
 -- Indexes for dumped tables
@@ -133,7 +132,7 @@ ALTER TABLE `parttimer`
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
