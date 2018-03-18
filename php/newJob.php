@@ -25,5 +25,7 @@ $query = "INSERT INTO job(title, scope, salary, date, startTime, endTime, locati
 ('$title','$scope','$salary','$date','$startTime', '$endTime', '$location', '$skill', 'available', '$empEmail', 'empty')";
 mysqli_query($connection, $query);
 
+header("Location: ../webpage/ehomePage.php");
+
 mysqli_close($connection);
 ?>

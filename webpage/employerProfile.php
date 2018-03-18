@@ -57,7 +57,7 @@ $row = mysqli_fetch_assoc($result);
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="homePage.php">Job History</a></li>
+                  <li><a href="ehomePage.php">Job History</a></li>
                   <li><a href="postJob.php">Post New Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
                   <li><a href="employerProfile.php">Profile</a></li>
