@@ -26,7 +26,7 @@ include '../php/dbConnection.php';
 
 </head>
 <body>
-  <script src="../js/validatePostJob.js"></script>
+
   <!-- Navigation -->
   <div id="navigation">
     <nav class="navs" role="navigation">
@@ -177,6 +177,7 @@ include '../php/dbConnection.php';
     <script src="../js/wow.min.js"></script>
     <script src="../js/jquery.easing.min.js"></script>
     <script src="../js/functions.js"></script>
+    <script src="../js/validatePostJob.js"></script>
 
   </body>
 
