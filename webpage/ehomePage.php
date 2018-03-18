@@ -97,6 +97,7 @@ include '../php/dbConnection.php';
                   <th style="text-align:center">Location</th>
                   <th style="text-align:center">Status</th>
                   <th style="text-align:center">PartTimer's Email</th>
+                  <th style="text-align:center">Edit Details</th>
                 </tr>
               </thead>
               <tbody>
@@ -111,6 +112,7 @@ include '../php/dbConnection.php';
               if(mysqli_num_rows($result) > 0){
 
                 while($row = mysqli_fetch_assoc($result)){
+                  echo "<form action = 'editJob.php' method='post'>";
                   echo "<tr>";
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
                   echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
@@ -120,7 +122,10 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" . $row['location'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
+                  echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
+                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "</tr>";
+                  echo "</form>";
                 }
               }
               ?>
