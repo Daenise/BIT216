@@ -97,21 +97,21 @@ $row = mysqli_fetch_assoc($result);
           <div class="fullname">
             <label class="col-xs-12 col-sm-5 col-md-5"> Full Name : </label>
             <div class="col-xs-12 col-sm-7 col-md-7">
-              <input class="form-control" name="eFullName" type="text" value=<?php echo $row['fullName'] ?> required>
+              <input class="form-control" name="eFullName" type="text" value="<?php echo $row['fullName'] ?>" required>
             </div>
           </div>
 
           <div class="pssd">
             <label class="col-xs-12 col-sm-5 col-md-5">Password : </label>
             <div class="col-xs-12 col-sm-7 col-md-7">
-              <input class="form-control" name="ePassword" type="password" value=<?php echo $row['password'] ?>>
+              <input class="form-control" name="ePassword" type="password" value="<?php echo $row['password'] ?>">
             </div>
           </div>
 
           <div class="contact">
             <label class="col-xs-12 col-sm-5 col-md-5">Contact No : </label>
             <div class="col-xs-12 col-sm-7 col-md-7">
-              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="eContact" value= <?php echo $row['contactNo'] ?>
+              <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="eContact" value="<?php echo $row['contactNo'] ?>"
               class="form-control" required>
             </div>
           </div>
@@ -119,7 +119,7 @@ $row = mysqli_fetch_assoc($result);
           <div class="workAdd">
             <label class="col-xs-12 col-sm-5 col-md-5">Work Address:</label>
             <div class="col-xs-12 col-sm-7 col-md-7">
-              <input type="text" class="form-control" name="eAddress" value=<?php echo $row['address'] ?>>
+              <input type="text" class="form-control" name="eAddress" value="<?php echo $row['address'] ?>">
             </div>
           </div>
 
@@ -127,12 +127,12 @@ $row = mysqli_fetch_assoc($result);
           <div class="city">
             <label class="col-xs-12 col-sm-5 col-md-5">City : </label>
             <div class="col-xs-12 col-sm-7 col-md-7">
-              <input type="text" class="form-control" name="eCity" value=<?php echo $row['city'] ?>>
+              <input type="text" class="form-control" name="eCity" value="<?php echo $row['city'] ?>">
             </div>
           </div>
 
           <div class="state">
-            <label class="col-xs-12 col-sm-5 col-md-5"value=<?php echo $row['state'] ?> > State : </label>
+            <label class="col-xs-12 col-sm-5 col-md-5" value="<?php echo $row['state'] ?>" > State : </label>
             <div class="col-xs-12 col-sm-7 col-md-7">
               <select name="eState" class="form-control">
                 <option value ="kl" selected>KL</option>
@@ -157,7 +157,7 @@ $row = mysqli_fetch_assoc($result);
           <div class="zip">
             <label class="col-xs-12 col-sm-5 col-md-5">Zip : </label>
             <div class="col-xs-12 col-sm-7 col-md-7">
-              <input type="text" class="form-control" name="eZip" value=<?php echo $row['zip'] ?>>
+              <input type="text" class="form-control" name="eZip" value="<?php echo $row['zip'] ?>">
             </div>
           </div>
 
