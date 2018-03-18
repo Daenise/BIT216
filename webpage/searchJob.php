@@ -133,11 +133,7 @@ if(mysqli_num_rows($result) > 0){
       </div>
     </div>
   </footer>
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> c881d29037a3961c2abda4651f95ef20abc844bd
 </div>
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
