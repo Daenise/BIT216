@@ -26,6 +26,7 @@ include '../php/dbConnection.php';
 
 </head>
 <body>
+  <script src="../js/validatePostJob.js"></script>
   <!-- Navigation -->
   <div id="navigation">
     <nav class="navs" role="navigation">
@@ -80,7 +81,7 @@ include '../php/dbConnection.php';
     </section>
 
     <div>
-      <form name="postJobForm" action="../php/newJob.php" method="post">
+      <form name="postJobForm" onsubmit="return validateJob()" action="../php/newJob.php" method="post">
         <div class="row" style="margin-top: 50px;">
           <div class="col-sm-offset-2 col-sm-8">
 
@@ -105,8 +106,8 @@ include '../php/dbConnection.php';
 
             <div class="form-group">
               <label>Date: </label>
-              <input type="date" name="date"
-              class="form-control" required>
+              <input type="date" name="date" class="form-control" required>
+              <div id="invalidDate" class="error"></div>
             </div>
 
             <div class="form-group col-md-6">
@@ -178,4 +179,5 @@ include '../php/dbConnection.php';
     <script src="../js/functions.js"></script>
 
   </body>
+
   </html>
