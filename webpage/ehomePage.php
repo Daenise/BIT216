@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../php/dbConnection.php';
+$email = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -104,9 +105,9 @@ include '../php/dbConnection.php';
 
               <?php
 
-              $query = "SELECT * FROM employer, job
-                        WHERE job.status = 'AVAILABLE'
-                        AND employer.email = job.employerEmail";
+              $query = "SELECT * FROM job
+                        WHERE job.status = 'available'
+                        AND job.employerEmail='{$_SESSION['email']}'";
               $result = mysqli_query($connection, $query);
 
               if(mysqli_num_rows($result) > 0){

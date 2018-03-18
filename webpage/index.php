@@ -35,6 +35,59 @@ if (empty($_SESSION['pSignUp'])) {
 
 </head>
 <body>
+  <?php
+  if(isset($_SESSION['eSignUp'])){
+    if($_SESSION['eSignUp'] == "failed") {
+      echo
+      "<div class='alert alert-danger alert-dismissible fade in'>
+       <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+       Username has been taken!
+       </div>";
+      unset($_SESSION['eSignUp']);
+    }
+    else if($_SESSION['eSignUp'] == "success") {
+      echo
+      " <div class='alert alert-success alert-dismissible fade in'>
+      <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+      Registration Successful!
+      </div>";
+      unset($_SESSION['eSignUp']);
+    }
+  }
+
+
+  if(isset($_SESSION['pSignUp'])){
+    if($_SESSION['pSignUp'] == "failed") {
+      echo
+      "<div class='alert alert-danger alert-dismissible fade in'>
+       <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+       Username has been taken!
+       </div>";
+      unset($_SESSION['pSignUp']);
+    }
+    else if($_SESSION['pSignUp'] == "success") {
+      echo
+      " <div class='alert alert-success alert-dismissible fade in'>
+      <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+      Registration Successful!
+      </div>";
+      unset($_SESSION['pSignUp']);
+    }
+  }
+
+  if(isset($_SESSION['email'])){
+    if($_SESSION['email'] == "failed") {
+      echo
+      "<div class='alert alert-danger alert-dismissible fade in'>
+       <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+       Invalid Username or Password!
+       </div>";
+      unset($_SESSION['Email']);
+    }
+  }
+
+  ?>
+
   <!-- Navigation -->
   <div id="navigation">
     <nav class="navs" role="navigation">
@@ -202,7 +255,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                             <div class="form-group">
                               <label>Password: </label>
-                              <input type="password" name="ePassword" placeholder="Password"
+                              <input type="password" name="ePassword" pattern=".{6,}" placeholder="Password must contain at least 6 characters."
                               class="form-control" required>
                             </div>
 
@@ -283,7 +336,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                             <div class="form-group">
                               <label>Password: </label>
-                              <input type="password" name="pPassword" placeholder="Password"
+                              <input type="password" name="pPassword" pattern=".{6,}" placeholder="Password must contain at leat 6 characters."
                               class="form-control" required>
                             </div>
 
@@ -679,33 +732,6 @@ if (empty($_SESSION['pSignUp'])) {
       </div>
 
       </section>
-
-      <?php
-      if(isset($_SESSION['eSignUp'])){
-        if($_SESSION['eSignUp'] == "failed") {
-          echo
-          "<script>alert('This email has been taken!')</script>";
-          unset($_SESSION['eSignUp']);
-        }
-        if($_SESSION['eSignUp'] == "success") {
-          echo
-          "<script>alert('Successfully registered!')</script>";
-          unset($_SESSION['eSignUp']);
-        }
-      }
-      if(isset($_SESSION['pSignUp'])){
-        if($_SESSION['pSignUp'] == "failed") {
-          echo
-          "<script>alert('This username has been taken!')</script>";
-          unset($_SESSION['pSignUp']);
-        }
-        if($_SESSION['pSignUp'] == "success") {
-          echo
-          "<script>alert('Successfully registered!')</script>";
-          unset($_SESSION['pSignUp']);
-        }
-      }
-      ?>
 
       <footer>
         <div class="container">
