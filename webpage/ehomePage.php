@@ -10,6 +10,7 @@ $email = $_SESSION['email'];
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
 <?php
   echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
 ?>

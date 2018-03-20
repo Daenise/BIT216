@@ -17,7 +17,10 @@ $row = mysqli_fetch_assoc($result);
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web For Jinjang</title>
+  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
+  <?php
+    echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
+  ?>
 
   <!-- Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +59,7 @@ $row = mysqli_fetch_assoc($result);
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
-                <ul class="nav navbar-nav navbar-right">            
+                <ul class="nav navbar-nav navbar-right">
                   <li><a href="searchJob.php">Search Job</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
                   <li><a href="phomePage.php">Job History</a></li>
