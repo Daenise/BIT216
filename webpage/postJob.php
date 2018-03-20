@@ -100,7 +100,7 @@ include '../php/dbConnection.php';
 
             <div class="form-group">
               <label>Salary per hour: </label>
-              <input type="text" name="jobSalary" placeholder=""
+              <input type="number" name="jobSalary" placeholder=""
               class="form-control" required>
             </div>
 

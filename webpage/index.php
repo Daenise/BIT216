@@ -268,7 +268,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                             <div class="form-group">
                               <label>Company Address</label>
-                              <input type="text" class="form-control" name="eAddress" placeholder="No. , Jalan xxx">
+                              <input type="text" class="form-control" name="eAddress" placeholder="No. , Jalan xxx" required>
                             </div>
 
                             <!--The tweleve states of Malaysia, though KL is default due to it being a Jinjang community-->
@@ -298,7 +298,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                             <div class="form-group col-md-4">
                               <label>Zip</label>
-                              <input type="text" class="form-control" name="eZip">
+                              <input type="text" class="form-control" name="eZip" required>
                             </div>
 
                           </div>
@@ -349,7 +349,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                             <div class="form-group">
                               <label>Address</label>
-                              <input type="text" class="form-control" name="pAddress" placeholder="No. , Jalan xxx">
+                              <input type="text" class="form-control" name="pAddress" placeholder="No. , Jalan xxx" required>
                             </div>
                             <div class="form-group col-md-4">
                               <label>City</label>
@@ -379,7 +379,7 @@ if (empty($_SESSION['pSignUp'])) {
 
                             <div class="form-group col-md-4">
                               <label>Zip</label>
-                              <input type="text" class="form-control" name="pZip">
+                              <input type="text" class="form-control" name="pZip" required>
                             </div>
 
                             <div class="form-group">
