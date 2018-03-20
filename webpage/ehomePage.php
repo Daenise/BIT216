@@ -136,19 +136,6 @@ $email = $_SESSION['email'];
         </div>
       </div>
 
-      <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <div class="text-center">
-                  <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-                  <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
-                  </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>

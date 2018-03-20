@@ -49,9 +49,9 @@ include '../php/dbConnection.php';
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="phomePage.php">Job History</a></li>
                   <li><a href="searchJob.php">Search Jobs</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
+                  <li><a href="phomePage.php">Job History</a></li>
                   <li><a href="part-timerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
@@ -110,7 +110,7 @@ if(mysqli_num_rows($result) > 0){
         echo "</ul>
               </div>
               <div class = 'btn'>";
-        echo "<a href='#'>Order Now</a>";
+        echo "<a href='#'>Apply</a>";
         echo "</div>
         </div>
         </div>

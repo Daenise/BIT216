@@ -37,7 +37,7 @@ else{
     $_SESSION['fullName'] = $row['fullName'];
     $_SESSION['type'] = $row['type'];
 
-    header('Location: ../webpage/phomePage.php');
+    header('Location: ../webpage/searchJob.php');
   }
 
   else {
