@@ -98,7 +98,7 @@ if(mysqli_num_rows($result) > 0){
               <div class='entry-title'>";
 
         echo "<h3>" . $row['title'] . "</h3>";
-        echo "<div class='price'>" . $row['salary'] . "<span>/PER HOUR</span>";
+        echo "<div class='price'> RM" . $row['salary'] . "<span>/ HOUR</span>";
         echo "</div>
               </div>
               <div class='entry-content'>
