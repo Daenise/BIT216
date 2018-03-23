@@ -190,14 +190,14 @@ if (empty($_SESSION['pSignUp'])) {
                   <div class="form-row">
                     <label>
                       <span>Email</span>
-                      <input type="email" name="email">
+                      <input type="email" name="email" required>
                     </label>
                   </div>
 
                   <div class="form-row">
                     <label>
                       <span>Password</span>
-                      <input type="password" name="password">
+                      <input type="password" name="password" required>
                     </label>
                   </div>
 
