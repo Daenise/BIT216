@@ -1,0 +1,71 @@
+.profile {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffffff;
+}
+
+.title {
+  margin-top:40px;
+  margin-bottom:40px;
+}
+
+.title h2 {
+	font-size: 40px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.profilePic {
+  background-color: #000000;
+  padding: 80px;
+}
+
+.avatar {
+  padding: 20px;
+  height: 300px;
+  width: 300px;
+  margin-left: 25%;
+}
+
+.eFullname {
+  color: #000000;
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.pDetails {
+  text-indent: 90px;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.fullname, .email, .contact, .workAdd, .city, .state, .zip, .pssd{
+  padding: 50px;
+}
+
+
+button{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 15px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 35px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button:hover, a:hover {
+    opacity: 0.7;
+}
