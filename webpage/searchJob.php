@@ -9,9 +9,10 @@ include '../php/dbConnection.php';
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php
-  echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
-?>
+  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
+  <?php
+    echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
+  ?>
   <!-- Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -49,9 +50,9 @@ include '../php/dbConnection.php';
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="phomePage.php">Job History</a></li>
                   <li><a href="searchJob.php">Search Jobs</a></li>
                   <li><a href="#pendingApplication">Pending Application</a></li>
+                  <li><a href="phomePage.php">Job History</a></li>
                   <li><a href="part-timerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
@@ -97,7 +98,7 @@ if(mysqli_num_rows($result) > 0){
               <div class='entry-title'>";
 
         echo "<h3>" . $row['title'] . "</h3>";
-        echo "<div class='price'>" . $row['salary'] . "<span>/PER HOUR</span>";
+        echo "<div class='price'> RM" . $row['salary'] . "<span>/ HOUR</span>";
         echo "</div>
               </div>
               <div class='entry-content'>
@@ -110,7 +111,7 @@ if(mysqli_num_rows($result) > 0){
         echo "</ul>
               </div>
               <div class = 'btn'>";
-        echo "<a href='#'>Order Now</a>";
+        echo "<a href='#'>Apply</a>";
         echo "</div>
         </div>
         </div>

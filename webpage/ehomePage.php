@@ -10,6 +10,7 @@ $email = $_SESSION['email'];
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
 <?php
   echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
 ?>
@@ -135,19 +136,6 @@ $email = $_SESSION['email'];
           </div>
         </div>
       </div>
-
-      <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <div class="text-center">
-                  <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-                  <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
-                  </div>
-              </div>
-            </div>
-          </div>
-        </footer>
 
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
