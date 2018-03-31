@@ -23,15 +23,15 @@ else{
 }
 */
 if(year < yyyy){
-  alert("Year cannot be before today !");
+  alert("Date cannot be before today!");
   return false;
 }
 if (year == yyyy && month < mm){
-  alert("Month cannot be before today !");
+  alert("Date cannot be before today!");
   return false;
 }
 if (year == yyyy && month == mm && day < dd){
-    alert("Date cannot be before today !");
+    alert("Date cannot be before today!");
     return false;
   }
 //check if user create a session for today
