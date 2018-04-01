@@ -21,7 +21,8 @@ $email = $_SESSION['email'];
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/login.css" rel="stylesheet">
-  <link href="../css/homePageStyle.css" rel="stylesheet">
+  <link href="../css/phomePageStyle.css" rel="stylesheet">
+  <link href="../css/ehomePage.css" rel="stylesheet">
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script>
@@ -100,6 +101,7 @@ $email = $_SESSION['email'];
                   <th style="text-align:center">Status</th>
                   <th style="text-align:center">PartTimer's Email</th>
                   <th style="text-align:center">Edit Details</th>
+                  <th style="text-align:center">Rate Part-Timer</th>
                 </tr>
               </thead>
               <tbody>
@@ -107,13 +109,13 @@ $email = $_SESSION['email'];
               <?php
 
               $query = "SELECT * FROM job
-                        WHERE job.status = 'available'
-                        AND job.employerEmail='{$_SESSION['email']}'";
+                        WHERE job.employerEmail='{$_SESSION['email']}'";
               $result = mysqli_query($connection, $query);
 
               if(mysqli_num_rows($result) > 0){
 
                 while($row = mysqli_fetch_assoc($result)){
+                  if ($row['status']=='available'){
                   echo "<form action = 'editJob.php' method='post'>";
                   echo "<tr>";
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
@@ -125,9 +127,28 @@ $email = $_SESSION['email'];
                   echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
                   echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
+                  echo "<td style='text-align:center'> Not available </td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "</tr>";
                   echo "</form>";
+                }
+                else if ($row['status']=='closed'){
+                  echo "<form action = 'editJob.php' method='post'>";
+                  echo "<tr>";
+                  echo "<td style='text-align:center'>" .$row["title"] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['date'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['startTime'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['endTime'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['location'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['status'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
+                  echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
+                  echo "<td style='text-align:center'><a data-toggle=modal href=#rateP> Rate Now </a></td>";
+                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
+                  echo "</tr>";
+                  echo "</form>";
+                }
                 }
               }
               ?>
@@ -136,6 +157,37 @@ $email = $_SESSION['email'];
           </div>
         </div>
       </div>
+
+      <div class="container">
+        <div class="modal fade" id="rateP" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title" align="center">Rate Part-Timer</h2>
+              </div>
+
+              <div class="modal-body">
+                <div class="Title">
+                  <label> Title : </label>
+                  <label> Job Scope: </label>
+                  <label> Date : </label>
+                  <label> Start Time : </label>
+                  <label> End Time : </label>
+                  <label> Location : </label>
+                  <label> Part-Timer Name : </label>
+                  <label> Part-Timer Email : </label>
+                  <label> Part-Timer Contact No : </label>
+
+
+              </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
