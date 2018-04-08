@@ -11,7 +11,7 @@ if (isset($_POST['applyJob'])) {
           VALUES ('$id','$email','$status')";
   mysqli_query($connection, $sql);
 
-  header('location: searchJob.php');
+  header('location: ../webpage/searchJob.php');
 
 }
 
