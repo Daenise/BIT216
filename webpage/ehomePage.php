@@ -158,11 +158,18 @@ $email = $_SESSION['email'];
               </div>
               </div>
               </div>";
-              ?>
 
 
-              <div class="container">
-              <div class="modal fade" id="rateP" role="dialog">
+              $jobSelected = explode(',', $row['registeredJobID']);
+              foreach ($jobSelected as $jID){
+                $q_jobDetails = "SELECT * FROM job,parttimer WHERE job.employerEmail='{$_SESSION['email']}' AND parttimer.registeredJobID=job.jobID";
+                $r_jobDetails = mysqli_query($connection, $q_jobDetails);
+
+                // initialize counter for pop-up/modal reference
+                $prating = "1";
+
+              echo '<div class="container">
+              <div class="modal fade" id="rateP" '.$prating.' role="dialog" >
               <div class="modal-dialog">
 
               <form method="post" action="../php/ptRating.php">
@@ -172,13 +179,9 @@ $email = $_SESSION['email'];
               <h2 class="modal-title">Rate Part-Timer</h2>
               </div>
 
-              <div class="modal-body">
-              <?php
+              <div class="modal-body">';
 
-              $jobSelected = explode(',', $row['registeredJobID']);
-              foreach ($jobSelected as $jID){
-                $q_jobDetails = "SELECT * FROM job,parttimer WHERE job.employerEmail='{$_SESSION['email']}' AND parttimer.registeredJobID=job.jobID";
-                $r_jobDetails = mysqli_query($connection, $q_jobDetails);
+
 
                 if (mysqli_num_rows($r_jobDetails)>0){
                   while ($row = mysqli_fetch_assoc($r_jobDetails)){
@@ -193,9 +196,9 @@ $email = $_SESSION['email'];
                     echo "<input type=hidden name='hidden2' value=".$row['partTimerEmail'] .">" ;
                     echo "<input type=hidden name='hidden1' value=".$row['jobID'].">";
 
-                  }}}
-                  ?>
-                  <br>
+
+
+                  echo '<br>
                   <fieldset class="rating">
                       <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                       <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
@@ -217,8 +220,12 @@ $email = $_SESSION['email'];
                   </div>
                 </form>
                   </div>
-                  </div>
-
+                  </div>';
+                  $prating++;
+                }
+              }
+            }
+?>
                   <!-- Core JavaScript Files -->
                   <script src="../js/jquery-2.1.1.min.js"></script>
                   <script src="../js/bootstrap.min.js"></script>
