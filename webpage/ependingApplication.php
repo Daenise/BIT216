@@ -77,6 +77,7 @@ $email = $_SESSION['email'];
                 <h2 class="h-bold">Applications Pending</h2>
 
 
+
               </div>
             </div>
           </div>
