@@ -7,12 +7,11 @@ if (isset($_POST['applyJob'])) {
   $email =  $_SESSION['email'];
   $status = "Pending";
 
-  $sql = "INSERT INTO application (jobID,partTimerEmail,jobStatus)
+  $sql = "INSERT INTO  application (jobID,partTimerEmail,jobStatus)
           VALUES ('$id','$email','$status')";
   mysqli_query($connection, $sql);
 
-  //header('location: ../webpage/searchJob.php');
-  mysqli_error($con);
+  header('location: ../webpage/searchJob.php');
 
 }
 
