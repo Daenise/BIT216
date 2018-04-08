@@ -111,7 +111,7 @@ if(mysqli_num_rows($result) > 0){
         echo "</ul>
               </div>
               <div class = 'btn'>";
-        echo "<a href='#'>Apply</a>";
+        echo "<form method='POST' action='applyjob.php'></form><a href='#'>Apply</a>";
         echo "</div>
         </div>
         </div>
