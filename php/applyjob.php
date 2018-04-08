@@ -10,6 +10,10 @@ if (isset($_POST['applyJob'])) {
   $sql = "INSERT INTO  application (jobID,partTimerEmail,jobStatus)
           VALUES ('$id','$email','$status')";
   mysqli_query($connection, $sql);
+
+  header('location: searchJob.php');
+
 }
+
 
 ?>
