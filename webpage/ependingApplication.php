@@ -74,7 +74,7 @@ $email = $_SESSION['email'];
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
               <div class="heading text-center">
-                <h2 class="h-bold">Job History</h2>
+                <h2 class="h-bold">Applications Pending</h2>
 
 
               </div>
@@ -84,58 +84,6 @@ $email = $_SESSION['email'];
       </div>
     </section>
 
-
-    <div class ="row">
-        <div class = "col-xs-12">
-          <div id="myTable" class="table-responsive">
-            <table class="table table-bordered table-hover table-condensed">
-              <thead>
-                <tr style="background-color: #162b4c; color: #fff;">
-                  <th style="text-align:center">Title</th>
-                  <th style="text-align:center">Salary</th>
-                  <th style="text-align:center">Date</th>
-                  <th style="text-align:center">StartTime</th>
-                  <th style="text-align:center">EndTime</th>
-                  <th style="text-align:center">Location</th>
-                  <th style="text-align:center">Status</th>
-                  <th style="text-align:center">PartTimer's Email</th>
-                  <th style="text-align:center">Edit Details</th>
-                </tr>
-              </thead>
-              <tbody>
-
-              <?php
-
-              $query = "SELECT * FROM job
-                        WHERE job.status = 'available'
-                        AND job.employerEmail='{$_SESSION['email']}'";
-              $result = mysqli_query($connection, $query);
-
-              if(mysqli_num_rows($result) > 0){
-
-                while($row = mysqli_fetch_assoc($result)){
-                  echo "<form action = 'editJob.php' method='post'>";
-                  echo "<tr>";
-                  echo "<td style='text-align:center'>" .$row["title"] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['date'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['startTime'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['endTime'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['location'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['status'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
-                  echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
-                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
-                  echo "</tr>";
-                  echo "</form>";
-                }
-              }
-              ?>
-              </tbody>
-            </table><br/>
-          </div>
-        </div>
-      </div>
 
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
