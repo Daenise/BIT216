@@ -12,7 +12,7 @@ if (isset($_POST['applyJob'])) {
   mysqli_query($connection, $sql);
 
   //header('location: ../webpage/searchJob.php');
-  mysqli_error($con);
+  mysqli_error($connection);
 
 }
 
