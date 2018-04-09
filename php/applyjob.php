@@ -14,6 +14,4 @@ if (isset($_POST['applyJob'])) {
   header('location: ../webpage/searchJob.php');
 
 }
-
-
 ?>
