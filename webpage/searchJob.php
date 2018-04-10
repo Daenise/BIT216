@@ -111,10 +111,23 @@ if(mysqli_num_rows($result) > 0){
         echo "</ul>
               </div>
               <div class = 'btn'>";
-        echo "<form method='POST' action='../php/applyjob.php'>
+
+        $sql2 = "SELECT *
+                 FROM application
+                 WHERE application.partTimerEmail = '{$_SESSION['email']}'
+                 AND  application.jobID = '".$row['jobID']."'";
+
+        $result2 = mysqli_query($connection, $sql2);
+
+        echo mysqli_error($connection);
+
+        if(mysqli_num_rows($result2) > 0){
+           echo "<button type='button' disabled>Applied</button>";
+        } else if(mysqli_num_rows($result2) == 0){echo "<form method='POST' action='../php/applyjob.php'>
               <input type ='text' class='hide' name='jobID' value=" . $row['jobID'] . ">
               <button type='submit' name='applyJob'>Apply</button>
               </form>";
+            }
         echo "</div>
         </div>
         </div>

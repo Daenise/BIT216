@@ -11,10 +11,6 @@ if (isset($_POST['applyJob'])) {
           VALUES ('$id', '$email','$status')";
   mysqli_query($connection, $sql);
 
-  $sql2 = "UPDATE job
-          SET status = 'Pending'
-          WHERE jobID = '".$id."'";
-
   mysqli_query($connection, $sql2);
 
   header("Location: ../webpage/searchJob.php");
