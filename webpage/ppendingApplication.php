@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../php/dbConnection.php';
+$email = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -10,9 +11,9 @@ include '../php/dbConnection.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
-  <?php
-    echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
-  ?>
+<?php
+  echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
+?>
   <!-- Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -50,10 +51,10 @@ include '../php/dbConnection.php';
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="searchJob.php">Search Jobs</a></li>
-                  <li><a href="ppendingApplication.php">Pending Application</a></li>
-                  <li><a href="phomePage.php">Job History</a></li>
-                  <li><a href="part-timerProfile.php">Profile</a></li>
+                  <li><a href="ehomePage.php">Job History</a></li>
+                  <li><a href="postJob.php">Post New Job</a></li>
+                  <li><a href="ependingApplication.php">Pending Application</a></li>
+                  <li><a href="employerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
@@ -73,9 +74,7 @@ include '../php/dbConnection.php';
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
               <div class="heading text-center">
-                <h2 class="h-bold">Search</h2>
-
-
+                <h2 class="h-bold">Applications Pending</h2>
               </div>
             </div>
           </div>
@@ -83,62 +82,61 @@ include '../php/dbConnection.php';
       </div>
     </section>
 
-<div id='price'>
-<?php
+    <div class ="row">
+        <div class = "col-xs-12">
+          <div id="myTable" class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr style="background-color: #162b4c; color: #fff;">
+                  <th style="text-align:center">Title</th>
+                  <th style="text-align:center">Salary</th>
+                  <th style="text-align:center">Date</th>
+                  <th style="text-align:center">PTimer's Email</th>
+                  <th style="text-align:center">PTimer's Rating</th>
+                  <th style="text-align:center">Accept/Reject</th>
+                </tr>
+              </thead>
+              <tbody>
 
-$query = "SELECT * FROM job WHERE job.status ='available'";
-$result = mysqli_query($connection, $query);
+              <?php
 
-if(mysqli_num_rows($result) > 0){
-
-  while($row = mysqli_fetch_assoc($result)){
-        echo "
-              <div class='plan'>
-              <div class='plan-inner'>
-              <div class='entry-title'>";
-
-        echo "<h3>" . $row['title'] . "</h3>";
-        echo "<div class='price'> RM" . $row['salary'] . "<span>/ HOUR</span>";
-        echo "</div>
-              </div>
-              <div class='entry-content'>
-              <ul>";
-        echo "<li>" . $row['scope'] . "</li>";
-        echo "<li>" . $row['date'] . "</li>";
-        echo "<li>" . $row['startTime'] . "~" . $row['endTime'] . "</li>";
-        echo "<li>" . $row['location'] . "</li>";
-        echo "<li>" . $row['skill'] . "</li>";
-        echo "</ul>
-              </div>
-              <div class = 'btn'>";
-        echo "<form method='POST' action='../php/applyjob.php'>
-              <input type ='text' class='hide' name='jobID' value=" . $row['jobID'] . ">
-              <button type='submit' name='applyJob'>Apply</button>
-              </form>";
-        echo "</div>
-        </div>
-        </div>
-        ";
-}
-}
+              $query = "SELECT * FROM job, application, parttimer
+                        WHERE application.jobStatus = 'Pending'
+                        AND job.jobID = application.jobID
+                        AND application.partTimerEmail = parttimer.email
+                        AND job.employerEmail='{$_SESSION['email']}'";
 
 
-?>
+              $result = mysqli_query($connection, $query);
 
-<footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="text-center">
-            <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-            <p> ACTS Global Networking (AGN) <br /> 123,Jalan Satu, 12345 Kuala Lumpur. <br /> Call : 03-1234567 / Whatsapp : 012-34567891
-            </div>
+              echo mysqli_error($connection);
+
+              if(mysqli_num_rows($result) > 0){
+
+                while($row = mysqli_fetch_assoc($result)){
+                  echo "<form action = '../php/acceptJob.php' method='post'>";
+                  echo "<tr>";
+                  echo "<td style='text-align:center'>" .$row["title"] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['date'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['averageRating'] . "</td>";
+                  echo "<td> <input type = submit name='application' value = 'Accept' style ='width:100%'>
+                        <input type = submit name='application' value = 'Reject' style ='width:100%'> </td>";
+                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
+                  echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
+                  echo "</tr>";
+                  echo "</form>";
+                }
+              }
+              ?>
+              </tbody>
+            </table><br/>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
 
-</div>
+
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
