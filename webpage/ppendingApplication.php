@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../php/dbConnection.php';
-$email = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +10,9 @@ $email = $_SESSION['email'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
-<?php
-  echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
-?>
+  <?php
+    echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
+  ?>
   <!-- Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -51,10 +50,10 @@ $email = $_SESSION['email'];
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="ehomePage.php">Job History</a></li>
-                  <li><a href="postJob.php">Post New Job</a></li>
-                  <li><a href="ependingApplication.php">Pending Application</a></li>
-                  <li><a href="employerProfile.php">Profile</a></li>
+                  <li><a href="searchJob.php">Search Jobs</a></li>
+                  <li><a href="ppendingApplication.php">Pending Application</a></li>
+                  <li><a href="phomePage.php">Job History</a></li>
+                  <li><a href="part-timerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
               </div>
@@ -74,7 +73,9 @@ $email = $_SESSION['email'];
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
               <div class="heading text-center">
-                <h2 class="h-bold">Applications Pending</h2>
+                <h2 class="h-bold">Pending Applications</h2>
+
+
               </div>
             </div>
           </div>
@@ -91,8 +92,8 @@ $email = $_SESSION['email'];
                   <th style="text-align:center">Title</th>
                   <th style="text-align:center">Salary</th>
                   <th style="text-align:center">Date</th>
-                  <th style="text-align:center">PTimer's Email</th>
-                  <th style="text-align:center">PTimer's Rating</th>
+                  <th style="text-align:center">Employer's Email</th>
+                  <th style="text-align:center">Employer's Rating</th>
                   <th style="text-align:center">Accept/Reject</th>
                 </tr>
               </thead>
@@ -100,12 +101,10 @@ $email = $_SESSION['email'];
 
               <?php
 
-              $query = "SELECT * FROM job, application, parttimer
-                        WHERE application.jobStatus = 'Pending'
-                        AND job.jobID = application.jobID
-                        AND application.partTimerEmail = parttimer.email
-                        AND job.employerEmail='{$_SESSION['email']}'";
-
+              $query = "SELECT * FROM job, application, employer
+                        WHERE job.jobID = application.jobID
+                        AND job.employerEmail = employer.email
+                        AND application.partTimerEmail = '{$_SESSION['email']}'";
 
               $result = mysqli_query($connection, $query);
 
@@ -119,10 +118,10 @@ $email = $_SESSION['email'];
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
                   echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['date'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['averageRating'] . "</td>";
-                  echo "<td> <input type = submit name='application' value = 'Accept' style ='width:100%'>
-                        <input type = submit name='application' value = 'Reject' style ='width:100%'> </td>";
+                  echo "<td> <input type = submit name='application' value = 'Accept' style ='width:50%'>
+                        <input type = submit name='application' value = 'Reject' style ='width:50%'> </td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
                   echo "</tr>";
