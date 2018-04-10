@@ -122,7 +122,7 @@ $email = $_SESSION['email'];
                   echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['averageRating'] . "</td>";
                   echo "<td> <input type = submit name='application' value = 'Accept' style ='width:100%'>
-                             <input type = submit name='application' value = 'Reject' style ='width:100%'> </td>";
+                        <input type = submit name='application' value = 'Reject' style ='width:100%'> </td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
                   echo "</tr>";
