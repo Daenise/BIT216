@@ -101,26 +101,30 @@ $email = $_SESSION['email'];
               <?php
 
               $query = "SELECT * FROM job, application, parttimer
-                        WHERE job.status = 'Pending'
+                        WHERE application.jobStatus = 'Pending'
                         AND job.jobID = application.jobID
                         AND application.partTimerEmail = parttimer.email
                         AND job.employerEmail='{$_SESSION['email']}'";
 
+
               $result = mysqli_query($connection, $query);
+
+              echo mysqli_error($connection);
 
               if(mysqli_num_rows($result) > 0){
 
                 while($row = mysqli_fetch_assoc($result)){
-                  echo "<form action = 'acceptJob.php' method='post'>";
+                  echo "<form action = '../php/acceptJob.php' method='post'>";
                   echo "<tr>";
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
                   echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['date'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['averageRating'] . "</td>";
-                  echo "<td> <input type = submit value = 'Accept' style ='width:50%'>
-                             <input type = submit value = 'Reject' style ='width:50%'> </td>";
+                  echo "<td> <input type = submit name='application' value = 'Accept' style ='width:100%'>
+                             <input type = submit name='application' value = 'Reject' style ='width:100%'> </td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
+                  echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
                   echo "</tr>";
                   echo "</form>";
                 }
