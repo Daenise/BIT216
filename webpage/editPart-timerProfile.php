@@ -62,7 +62,7 @@ $row = mysqli_fetch_assoc($result);
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="homePage.php">Job History</a></li>
                   <li><a href="searchJob.php">Search Job</a></li>
-                  <li><a href="#pendingApplication">Pending Application</a></li>
+                  <li><a href="ppendingApplication.php">Pending Application</a></li>
                   <li><a href="part-timerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>
