@@ -135,9 +135,7 @@ include '../php/dbConnection.php';
         </div>
       </div>";
 
-      $jobSelected = explode(',', $row['jobID']);
-      foreach ($jobSelected as $jID){
-        $q_jDetails = "SELECT * FROM job,employer WHERE job.partTimerEmail='{$_SESSION['email']}' AND employer.jobID=job.jobID";
+        $q_jDetails = "SELECT * FROM application, job, employer WHERE application.partTimerEmail='{$_SESSION['email']}' AND application.jobID=job.jobID AND employer.email = job.employerEmail";
         $r_jDetails = mysqli_query($connection, $q_jDetails);
 
         // initialize counter for pop-up/modal reference
@@ -197,7 +195,7 @@ include '../php/dbConnection.php';
           $eRating++;
         }
       }
-    }
+
     ?>
 
   <!-- Core JavaScript Files -->
