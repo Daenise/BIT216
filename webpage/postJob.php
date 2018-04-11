@@ -54,7 +54,7 @@ include '../php/dbConnection.php';
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="ehomePage.php">Job History</a></li>
                   <li><a href="postJob.php">Post New Job</a></li>
-                  <li><a href="#pendingApplication">Pending Application</a></li>
+                  <li><a href="ependingApplication.php">Pending Application</a></li>
                   <li><a href="employerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
                 </ul>

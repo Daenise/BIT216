@@ -15,6 +15,8 @@ if($_POST['application'] == 'Accept'){
   mysqli_query($connection, $sql);
   echo mysqli_error($connection);
 
+  header("Location: ../webpage/ependingApplication.php");
+
 
 
 }
@@ -27,6 +29,8 @@ else if(['application'] == 'Reject'){
           AND application.jobID = '".$jobID."'";
 
   mysqli_query($connection, $sql2);
+
+  header("Location: ../webpage/ependingApplication.php");
 
 }
 
