@@ -51,7 +51,7 @@ include '../php/dbConnection.php';
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="searchJob.php">Search Jobs</a></li>
-                  <li><a href="#pendingApplication">Pending Application</a></li>
+                  <li><a href="ppendingApplication.php">Pending Application</a></li>
                   <li><a href="phomePage.php">Job History</a></li>
                   <li><a href="part-timerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
@@ -73,7 +73,7 @@ include '../php/dbConnection.php';
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
               <div class="heading text-center">
-                <h2 class="h-bold">Job History</h2>
+                <h2 class="h-bold">Pending Applications</h2>
 
 
               </div>
@@ -82,7 +82,6 @@ include '../php/dbConnection.php';
         </div>
       </div>
     </section>
-
 
     <div class ="row">
         <div class = "col-xs-12">
@@ -93,35 +92,41 @@ include '../php/dbConnection.php';
                   <th style="text-align:center">Title</th>
                   <th style="text-align:center">Salary</th>
                   <th style="text-align:center">Date</th>
-                  <th style="text-align:center">StartTime</th>
-                  <th style="text-align:center">EndTime</th>
-                  <th style="text-align:center">Location</th>
-                  <th style="text-align:center">Status</th>
                   <th style="text-align:center">Employer's Email</th>
+                  <th style="text-align:center">Employer's Rating</th>
+                  <th style="text-align:center">Current Status</th>
+                  <th style="text-align:center">Review</th>
                 </tr>
               </thead>
               <tbody>
 
               <?php
 
-              $query = "SELECT * FROM parttimer, job
-                        WHERE job.status = 'COMPLETE'
-                        AND parttimer.email = job.partTimerEmail";
+              $query = "SELECT * FROM job, application, employer
+                        WHERE job.jobID = application.jobID
+                        AND job.employerEmail = employer.email
+                        AND application.partTimerEmail = '{$_SESSION['email']}'";
+
               $result = mysqli_query($connection, $query);
+
+              echo mysqli_error($connection);
 
               if(mysqli_num_rows($result) > 0){
 
                 while($row = mysqli_fetch_assoc($result)){
+                  echo "<form action = '../php/acceptJob.php' method='post'>";
                   echo "<tr>";
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
                   echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['date'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['startTime'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['endTime'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['location'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['averageRating'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['jobStatus'] . "</td>";
+                  echo "<td> <input type = submit name='application' value = 'Review' style ='width:100%'></td>";
+                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
+                  echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
                   echo "</tr>";
+                  echo "</form>";
                 }
               }
               ?>
@@ -130,6 +135,7 @@ include '../php/dbConnection.php';
           </div>
         </div>
       </div>
+
 
   <!-- Core JavaScript Files -->
   <script src="../js/jquery-2.1.1.min.js"></script>

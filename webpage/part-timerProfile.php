@@ -29,7 +29,7 @@ $row = mysqli_fetch_assoc($result);
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/login.css" rel="stylesheet">
-  <link href="../css/phomePageStyle.css" rel="stylesheet">
+  <link href="../css/homePageStyle.css" rel="stylesheet">
   <link href="../css/editPart-timerProfile.css" rel="stylesheet">
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>

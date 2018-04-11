@@ -20,7 +20,7 @@ include '../php/dbConnection.php';
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/login.css" rel="stylesheet">
-  <link href="../css/phomePageStyle.css" rel="stylesheet">
+  <link href="../css/homePageStyle.css" rel="stylesheet">
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script>
@@ -51,7 +51,7 @@ include '../php/dbConnection.php';
               <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="searchJob.php">Search Jobs</a></li>
-                  <li><a href="#pendingApplication">Pending Application</a></li>
+                  <li><a href="ppendingApplication.php">Pending Application</a></li>
                   <li><a href="phomePage.php">Job History</a></li>
                   <li><a href="part-timerProfile.php">Profile</a></li>
                   <li><a href="index.php"> Logout </a></li>
@@ -111,7 +111,23 @@ if(mysqli_num_rows($result) > 0){
         echo "</ul>
               </div>
               <div class = 'btn'>";
-        echo "<a href='#'>Apply</a>";
+
+        $sql2 = "SELECT *
+                 FROM application
+                 WHERE application.partTimerEmail = '{$_SESSION['email']}'
+                 AND  application.jobID = '".$row['jobID']."'";
+
+        $result2 = mysqli_query($connection, $sql2);
+
+        echo mysqli_error($connection);
+
+        if(mysqli_num_rows($result2) > 0){
+           echo "<button type='button' disabled>Applied</button>";
+        } else if(mysqli_num_rows($result2) == 0){echo "<form method='POST' action='../php/applyjob.php'>
+              <input type ='text' class='hide' name='jobID' value=" . $row['jobID'] . ">
+              <button type='submit' name='applyJob'>Apply</button>
+              </form>";
+            }
         echo "</div>
         </div>
         </div>
