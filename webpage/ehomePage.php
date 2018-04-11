@@ -11,9 +11,9 @@ $email = $_SESSION['email'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32" />
-<?php
+  <?php
   echo "<title>" . $_SESSION['fullName'] . "'s Profile</title>";
-?>
+  ?>
   <!-- Bootstrap -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +21,9 @@ $email = $_SESSION['email'];
   <link href="../css/animate.css" rel="stylesheet" />
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/login.css" rel="stylesheet">
-  <link href="../css/homePageStyle.css" rel="stylesheet">
+  <link href="../css/phomePageStyle.css" rel="stylesheet">
+  <link href="../css/eHomePageStyle.css" rel="stylesheet">
+
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script>
@@ -86,63 +88,150 @@ $email = $_SESSION['email'];
 
 
     <div class ="row">
-        <div class = "col-xs-12">
-          <div id="myTable" class="table-responsive">
-            <table class="table table-bordered table-hover table-condensed">
-              <thead>
-                <tr style="background-color: #162b4c; color: #fff;">
-                  <th style="text-align:center">Title</th>
-                  <th style="text-align:center">Salary</th>
-                  <th style="text-align:center">Date</th>
-                  <th style="text-align:center">StartTime</th>
-                  <th style="text-align:center">EndTime</th>
-                  <th style="text-align:center">Location</th>
-                  <th style="text-align:center">Status</th>
-                  <th style="text-align:center">PartTimer's Email</th>
-                  <th style="text-align:center">Edit Details</th>
-                </tr>
-              </thead>
-              <tbody>
+      <div class = "col-xs-12">
+        <div id="myTable" class="table-responsive">
+          <table class="table table-bordered table-hover table-condensed">
+            <thead>
+              <tr style="background-color: #162b4c; color: #fff;">
+                <th style="text-align:center">Title</th>
+                <th style="text-align:center">Salary</th>
+                <th style="text-align:center">Date</th>
+                <th style="text-align:center">StartTime</th>
+                <th style="text-align:center">EndTime</th>
+                <th style="text-align:center">Location</th>
+                <th style="text-align:center">Status</th>
+                <th style="text-align:center">PartTimer's Email</th>
+                <th style="text-align:center">Edit Details</th>
+                <th style="text-align:center">Rate Part-Timer</th>
+              </tr>
+            </thead>
+            <tbody>
 
               <?php
 
               $query = "SELECT * FROM job
-                        WHERE job.status = 'available'
-                        AND job.employerEmail='{$_SESSION['email']}'";
+              WHERE job.employerEmail='{$_SESSION['email']}'";
               $result = mysqli_query($connection, $query);
 
               if(mysqli_num_rows($result) > 0){
 
                 while($row = mysqli_fetch_assoc($result)){
-                  echo "<form action = 'editJob.php' method='post'>";
-                  echo "<tr>";
-                  echo "<td style='text-align:center'>" .$row["title"] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['date'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['startTime'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['endTime'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['location'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['status'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
-                  echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
-                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
-                  echo "</tr>";
-                  echo "</form>";
+                  if ($row['status']=='available'){
+                    echo "<form action = 'editJob.php' method='post'>";
+                    echo "<tr>";
+                    echo "<td style='text-align:center'>" .$row["title"] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['date'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['startTime'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['endTime'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['location'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['status'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
+                    echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
+                    echo "<td style='text-align:center'> Not available </td>";
+                    echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
+                    echo "</tr>";
+                    echo "</form>";
+                  }
+                  else if ($row['status']=='closed'){
+                    echo "<form action = 'editJob.php' method='post'>";
+                    echo "<tr>";
+                    echo "<td style='text-align:center'>" .$row["title"] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['date'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['startTime'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['endTime'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['location'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['status'] . "</td>";
+                    echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
+                    echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
+                    echo "<td style='text-align:center'><a data-toggle=modal href=#rateP> Rate Now </a></td>";
+                    echo "<input type=hidden name='jID' id='jID' value= " . $row['jobID'] . ">";
+                    echo "</tr>";
+                    echo "</form>";
+                  }
                 }
               }
-              ?>
-              </tbody>
-            </table><br/>
-          </div>
-        </div>
-      </div>
 
-  <!-- Core JavaScript Files -->
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/wow.min.js"></script>
-  <script src="../js/jquery.easing.min.js"></script>
-  <script src="../js/functions.js"></script>
+              echo "</tbody>
+              </table><br/>
+              </div>
+              </div>
+              </div>";
 
-</body>
-</html>
+
+              $jobSelected = explode(',', $row['registeredJobID']);
+              foreach ($jobSelected as $jID){
+                $q_jobDetails = "SELECT * FROM job,parttimer WHERE job.employerEmail='{$_SESSION['email']}' AND parttimer.registeredJobID=job.jobID";
+                $r_jobDetails = mysqli_query($connection, $q_jobDetails);
+
+                // initialize counter for pop-up/modal reference
+                $prating = "1";
+
+              echo '<div class="container">
+              <div class="modal fade" id="rateP" '.$prating.' role="dialog" >
+              <div class="modal-dialog">
+
+              <form method="post" action="../php/ptRating.php">
+              <div class="ratings">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title">Rate Part-Timer</h2>
+              </div>
+
+              <div class="modal-body">';
+
+
+
+                if (mysqli_num_rows($r_jobDetails)>0){
+                  while ($row = mysqli_fetch_assoc($r_jobDetails)){
+
+                    echo "<td style='text-align:center'>Part Timer Name : " . $row['fullName'] . "</td><br>";
+                    echo "<td style='text-align:center'>Title : " .$row["title"] . "</td><br>";
+                    echo "<td style='text-align:center'>Salary : RM " . $row['salary'] . "</td><br>";
+                    echo "<td style='text-align:center'>Date : " . $row['date'] . "</td><br>";
+                    echo "<td style='text-align:center'>Start Time : " . $row['startTime'] . "</td><br>";
+                    echo "<td style='text-align:center'>End Time : " . $row['endTime'] . "</td><br>";
+                    echo "<td style='text-align:center'>Location : " . $row['location'] . "</td><br>";
+                    echo "<input type=hidden name='hidden2' value=".$row['partTimerEmail'] .">" ;
+                    echo "<input type=hidden name='hidden1' value=".$row['jobID'].">";
+
+
+
+                  echo '<br>
+                  <fieldset class="rating">
+                      <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                      <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                      <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                      <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                      <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                      <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                      <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                      <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                      <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                      <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                  </fieldset><br><br>
+
+                  <div class="buttonDiv">
+                  <input type="submit" class="rateButton" value="Submit">
+                  </div>
+
+                </div>
+                  </div>
+                </form>
+                  </div>
+                  </div>';
+                  $prating++;
+                }
+              }
+            }
+?>
+                  <!-- Core JavaScript Files -->
+                  <script src="../js/jquery-2.1.1.min.js"></script>
+                  <script src="../js/bootstrap.min.js"></script>
+                  <script src="../js/wow.min.js"></script>
+                  <script src="../js/jquery.easing.min.js"></script>
+                  <script src="../js/functions.js"></script>
+
+                </body>
+                </html>
