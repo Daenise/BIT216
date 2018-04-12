@@ -115,7 +115,7 @@ include '../php/dbConnection.php';
 
                 while($row = mysqli_fetch_assoc($result)){
                   $jobID=$row['jobID'];
-
+                  echo "<form action = 'rateEmployer.php' method='post'>";
                   echo "<tr>";
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
                   echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
@@ -125,9 +125,10 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" . $row['location'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
-                  echo "<td style='text-align:center'><a data-toggle='modal' data-target='#rateE'> Rate Now </a></td>";
-                  echo "<input type='hidden' name='jID' id='jID' value= 'jobID'>";
+                  echo "<td><input type = submit name='application' value = 'Rate' style ='width:100%'></td>";
+                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "</tr>";
+                  echo "</form>";
                 }
             }
   echo"</tbody>
@@ -135,67 +136,6 @@ include '../php/dbConnection.php';
 </div>
 </div>
 </div>";
-
-
-    $q_jDetails = "SELECT * FROM application, job, employer WHERE application.partTimerEmail='{$_SESSION['email']}'
-    AND application.jobID='$jobID' AND job.jobID='$jobID' AND employer.email=application.employerEmail";
-    $r_jDetails = mysqli_query($connection, $q_jDetails);
-        // initialize counter for pop-up/modal reference
-        $eRating = "1";
-
-        if (mysqli_num_rows($r_jDetails)>0){
-          while ($row = mysqli_fetch_assoc($r_jDetails)){
-            echo '<div class="container">
-            <div class="modal fade" id="rateE" '.$eRating.' role="dialog" >
-            <div class="modal-dialog">
-
-            <form method="post" action="../php/epRating.php">
-            <div class="ratings">
-            <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title">Rate Employer</h2>
-            </div>
-
-            <div class="modal-body">';
-
-            echo "<td style='text-align:center'>Employer Name : " . $row['fullName'] . "</td><br>";
-            echo "<td style='text-align:center'>Title : " .$row["title"] . "</td><br>";
-            echo "<td style='text-align:center'>Salary : RM " . $row['salary'] . "</td><br>";
-            echo "<td style='text-align:center'>Date : " . $row['date'] . "</td><br>";
-            echo "<td style='text-align:center'>Start Time : " . $row['startTime'] . "</td><br>";
-            echo "<td style='text-align:center'>End Time : " . $row['endTime'] . "</td><br>";
-            echo "<td style='text-align:center'>Location : " . $row['location'] . "</td><br>";
-            echo "<input type=hidden name='hidden2' value=".$row['employerEmail'] .">" ;
-            echo "<input type=hidden name='hidden1' value=".$row['jobID'].">";
-
-
-
-          echo '<br>
-          <fieldset class="rating">
-              <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-              <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-              <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-              <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-              <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-              <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-              <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-              <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-              <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-              <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-          </fieldset><br><br>
-
-          <div class="buttonDiv">
-          <input type="submit" class="rateButton" value="Submit">
-          </div>
-
-        </div>
-          </div>
-        </form>
-          </div>
-          </div>';
-          $eRating++;
-        }
-      }
 
     ?>
 
