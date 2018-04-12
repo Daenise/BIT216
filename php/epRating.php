@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'dbConnection.php';
+include '../php/dbConnection.php';
 
 $jobID = stripcslashes($_POST['hidden1']);
 $rating = stripcslashes($_POST['rating']);

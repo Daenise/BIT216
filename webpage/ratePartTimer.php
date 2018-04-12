@@ -2,7 +2,7 @@
 session_start();
 include '../php/dbConnection.php';
 
-$jobID = $_POST['hidden6'];
+$jobID = $_POST['hidden1'];
 
 ?>
 
@@ -36,35 +36,35 @@ $jobID = $_POST['hidden6'];
 
 <?php
 
-$q_jDetails = "SELECT * FROM job, employer WHERE
-                job.jobID='$jobID' AND job.employerEmail = employer.email";
-$r_jDetails = mysqli_query($connection, $q_jDetails);
+
+$q_jobDetails = "SELECT * FROM job, parttimer WHERE
+                job.jobID='$jobID' AND job.partTimerEmail = parttimer.email";
+$r_jobDetails = mysqli_query($connection, $q_jobDetails);
     // initialize counter for pop-up/modal reference
     $eRating = "1";
 
-    if (mysqli_num_rows($r_jDetails)>0){
-      while ($row = mysqli_fetch_assoc($r_jDetails)){
+    if (mysqli_num_rows($r_jobDetails)>0){
+      while ($row = mysqli_fetch_assoc($r_jobDetails)){
         echo '<div class="container">
 
-        <form method="post" action="../php/epRating.php">
+        <form method="post" action="../php/ptRating.php">
         <div class="ratings">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h2 class="modal-title">Rate Employer</h2>
         </div>
 
+
         <div class="modal-body">';
-
-        echo "<td style='text-align:center'>Employer Name : " . $row['fullName'] . "</td><br>";
-        echo "<td style='text-align:center'>Title : " .$row["title"] . "</td><br>";
-        echo "<td style='text-align:center'>Salary : RM " . $row['salary'] . "</td><br>";
-        echo "<td style='text-align:center'>Date : " . $row['date'] . "</td><br>";
-        echo "<td style='text-align:center'>Start Time : " . $row['startTime'] . "</td><br>";
-        echo "<td style='text-align:center'>End Time : " . $row['endTime'] . "</td><br>";
-        echo "<td style='text-align:center'>Location : " . $row['location'] . "</td><br>";
-        echo "<input type=hidden name='hidden2' value=".$row['employerEmail'] .">" ;
-        echo "<input type=hidden name='hidden1' value=".$row['jobID'].">";
-
+          echo "<td style='text-align:center'>Part Timer Name : " . $row['fullName'] . "</td><br>";
+          echo "<td style='text-align:center'>Title : " .$row["title"] . "</td><br>";
+          echo "<td style='text-align:center'>Salary : RM " . $row['salary'] . "</td><br>";
+          echo "<td style='text-align:center'>Date : " . $row['date'] . "</td><br>";
+          echo "<td style='text-align:center'>Start Time : " . $row['startTime'] . "</td><br>";
+          echo "<td style='text-align:center'>End Time : " . $row['endTime'] . "</td><br>";
+          echo "<td style='text-align:center'>Location : " . $row['location'] . "</td><br>";
+          echo "<input type=hidden name='hidden2' value=".$row['partTimerEmail'] .">" ;
+          echo "<input type=hidden name='hidden1' value=".$row['jobID'].">";
 
 
       echo '<br>
