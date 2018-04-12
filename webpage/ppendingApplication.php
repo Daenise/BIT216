@@ -95,7 +95,6 @@ include '../php/dbConnection.php';
                   <th style="text-align:center">Employer's Email</th>
                   <th style="text-align:center">Employer's Rating</th>
                   <th style="text-align:center">Current Status</th>
-                  <th style="text-align:center">Review</th>
                 </tr>
               </thead>
               <tbody>
@@ -122,7 +121,6 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['averageRating'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['jobStatus'] . "</td>";
-                  echo "<td> <input type = submit name='application' value = 'Review' style ='width:100%'></td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
                   echo "</tr>";

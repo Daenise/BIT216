@@ -123,6 +123,7 @@ if(mysqli_num_rows($result) > 0){
 
         if(mysqli_num_rows($result2) > 0){
            echo "<button type='button' disabled>Applied</button>";
+
         } else if(mysqli_num_rows($result2) == 0){echo "<form method='POST' action='../php/applyjob.php'>
               <input type ='text' class='hide' name='jobID' value=" . $row['jobID'] . ">
               <button type='submit' name='applyJob'>Apply</button>
