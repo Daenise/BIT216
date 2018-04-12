@@ -114,7 +114,7 @@ include '../php/dbConnection.php';
               if(mysqli_num_rows($result) > 0){
 
                 while($row = mysqli_fetch_assoc($result)){
-                  $jID = $row['jobID'];
+                  $jobID=$row['jobID'];
 
                   echo "<tr>";
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
@@ -126,15 +126,10 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
                   echo "<td style='text-align:center'><a data-toggle='modal' data-target='#rateE'> Rate Now </a></td>";
-                  echo "<input type='hidden' name='jID' id='jID' value= ".$row['jobID'].">";
+                  echo "<input type='hidden' name='jID' id='jID' value= 'jobID'>";
                   echo "</tr>";
-
-                  $q_jDetails = "SELECT * FROM application, job, employer WHERE application.partTimerEmail='{$_SESSION['email']}'
-                  AND job.partTimerEmail=application.partTimerEmail AND application.jobID='$jID' AND job.employerEmail=employer.email";
-                  $r_jDetails = mysqli_query($connection, $q_jDetails);
-
-}
-}
+                }
+            }
   echo"</tbody>
 </table><br/>
 </div>
@@ -142,6 +137,9 @@ include '../php/dbConnection.php';
 </div>";
 
 
+    $q_jDetails = "SELECT * FROM application, job, employer WHERE application.partTimerEmail='{$_SESSION['email']}'
+    AND application.jobID='$jobID' AND job.jobID='$jobID' AND employer.email=application.employerEmail";
+    $r_jDetails = mysqli_query($connection, $q_jDetails);
         // initialize counter for pop-up/modal reference
         $eRating = "1";
 

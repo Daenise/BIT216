@@ -147,7 +147,7 @@ $email = $_SESSION['email'];
                     echo "</tr>";
 
                     $q_jobDetails = "SELECT * FROM application, job, parttimer WHERE application.employerEmail='{$_SESSION['email']}'
-                    AND job.jobID='".$row['jobID']."' AND application.jobID='".$row['jobID']."' AND parttimer.email=job.partTimerEmail";
+                    AND job.jobID='".$row['jobID']."' AND application.partTimerEmail=job.partTimerEmail";
                     $r_jobDetails = mysqli_query($connection, $q_jobDetails);
                   }
                 }
