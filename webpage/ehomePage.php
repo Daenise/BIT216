@@ -125,6 +125,7 @@ $email = $_SESSION['email'];
                   echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
                   echo "<td> <input type = submit value = 'Edit' style ='width:100%'> </td>";
+                  echo "<td style='text-align:center'> Not available </td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "</tr>";
                   echo "</form>";

@@ -11,19 +11,11 @@ function validateJob(){
   var yyyy = today.getFullYear();
 
 if(year < yyyy){
-<<<<<<< HEAD
   alert("Date cannot be before today!");
   return false;
 }
 if (year == yyyy && month < mm){
-  alert("Date cannot be before today!");
-=======
   alert("Date cannot be before today !");
-  return false;
-}
-if (year == yyyy && month < mm){
-  alert("Date cannot be before today !");
->>>>>>> 7c6f02237fabed472351172f5ea018a7fc488156
   return false;
 }
 if (year == yyyy && month == mm && day < dd){
