@@ -118,11 +118,12 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
                   echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['date'] . "</td>";
-                  echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
+                  echo "<td style='text-align:center'>" . $row['email'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['averageRating'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['jobStatus'] . "</td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
+                  echo "<input type=hidden name=hidden3 value= " . $row['email'] . ">";
                   echo "</tr>";
                   echo "</form>";
                 }
