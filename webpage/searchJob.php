@@ -26,6 +26,25 @@ include '../php/dbConnection.php';
   <script src="js/respond.min.js"></script>
   <![endif]-->
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('../css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+</style>
+
+
 </head>
 <body>
   <!-- Navigation -->
@@ -75,6 +94,8 @@ include '../php/dbConnection.php';
               <div class="heading text-center">
                 <h2 class="h-bold">Search</h2>
 
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
 
               </div>
             </div>
@@ -86,7 +107,10 @@ include '../php/dbConnection.php';
 <div id='price'>
 <?php
 
-$query = "SELECT * FROM job WHERE job.status ='available'";
+$query = "SELECT * FROM job, parttimer  WHERE job.status ='available'
+          AND job.skill = parttimer.skillset
+          AND parttimer.email = '{$_SESSION['email']}'";
+
 $result = mysqli_query($connection, $query);
 
 if(mysqli_num_rows($result) > 0){
@@ -136,8 +160,32 @@ if(mysqli_num_rows($result) > 0){
 }
 }
 
+else {
+  echo "No results found!";
+}
+
 
 ?>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("price");
+  tr = document.getElementsByTagName("h3");
+  for (i = 0; i < div.length; i++) {
+    td = tr[i].getElementsByTagName("h3")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 
 <footer>
     <div class="container">
