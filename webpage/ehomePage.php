@@ -143,8 +143,12 @@ $email = $_SESSION['email'];
                     echo "<td style='text-align:center'>" . $row['partTimerEmail'] . "</td>";
                     echo "<td style='text-align:center'> Not available </td>";
                     echo "<td style='text-align:center'><a data-toggle=modal href=#rateP> Rate Now </a></td>";
-                    echo "<input type=hidden name='jID' id='jID' value= " . $row['jobID'] . ">";
+                    echo "<input type='hidden' name='jID' id='jID' value= " . $row['jobID'] . ">";
                     echo "</tr>";
+
+                    $q_jobDetails = "SELECT * FROM application, job, parttimer WHERE application.employerEmail='{$_SESSION['email']}'
+                    AND job.jobID='".$row['jobID']."' AND application.jobID='".$row['jobID']."' AND parttimer.email=job.partTimerEmail";
+                    $r_jobDetails = mysqli_query($connection, $q_jobDetails);
                   }
                 }
               }
@@ -156,8 +160,7 @@ $email = $_SESSION['email'];
         </div>
       </div>";
 
-      $q_jobDetails = "SELECT * FROM application, job, parttimer WHERE application.employerEmail='{$_SESSION['email']}' AND application.jobID=parttimer.registeredjobID AND application.partTimerEmail=job.partTimerEmail";
-      $r_jobDetails = mysqli_query($connection, $q_jobDetails);
+
               // initialize counter for pop-up/modal reference
               $prating = "1";
 

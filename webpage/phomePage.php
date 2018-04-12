@@ -114,6 +114,8 @@ include '../php/dbConnection.php';
               if(mysqli_num_rows($result) > 0){
 
                 while($row = mysqli_fetch_assoc($result)){
+                  $jID = $row['jobID'];
+
                   echo "<tr>";
                   echo "<td style='text-align:center'>" .$row["title"] . "</td>";
                   echo "<td style='text-align:center'>" . $row['salary'] . "</td>";
@@ -123,20 +125,22 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" . $row['location'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
-                  echo "<td style='text-align:center'><a data-toggle=modal href=#rateE> Rate Now </a></td>";
-                  echo "<input type=hidden name='jID' id='jID' value= " . $row['jobID'] . ">";
+                  echo "<td style='text-align:center'><a data-toggle='modal' data-target='#rateE'> Rate Now </a></td>";
+                  echo "<input type='hidden' name='jID' id='jID' value= ".$row['jobID'].">";
                   echo "</tr>";
-                }
-              }
 
-              echo"</tbody>
-            </table><br/>
-          </div>
-        </div>
-      </div>";
+                  $q_jDetails = "SELECT * FROM application, job, employer WHERE application.partTimerEmail='{$_SESSION['email']}'
+                  AND job.partTimerEmail=application.partTimerEmail AND application.jobID='$jID' AND job.employerEmail=employer.email";
+                  $r_jDetails = mysqli_query($connection, $q_jDetails);
 
-        $q_jDetails = "SELECT * FROM application, job, employer WHERE application.partTimerEmail='{$_SESSION['email']}' AND application.jobID=job.jobID AND employer.email = job.employerEmail";
-        $r_jDetails = mysqli_query($connection, $q_jDetails);
+}
+}
+  echo"</tbody>
+</table><br/>
+</div>
+</div>
+</div>";
+
 
         // initialize counter for pop-up/modal reference
         $eRating = "1";

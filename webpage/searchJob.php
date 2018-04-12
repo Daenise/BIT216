@@ -26,23 +26,6 @@ include '../php/dbConnection.php';
   <script src="js/respond.min.js"></script>
   <![endif]-->
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-#myInput {
-  background-image: url('../css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-</style>
 
 
 </head>
@@ -92,9 +75,7 @@ include '../php/dbConnection.php';
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.1s">
               <div class="heading text-center">
-                <h2 class="h-bold">Search</h2>
-
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                <h2 class="h-bold">Search Jobs</h2>
 
 
               </div>
@@ -167,25 +148,7 @@ else {
 
 ?>
 
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("price");
-  tr = document.getElementsByTagName("h3");
-  for (i = 0; i < div.length; i++) {
-    td = tr[i].getElementsByTagName("h3")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-</script>
+
 
 <footer>
     <div class="container">

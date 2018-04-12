@@ -16,8 +16,13 @@ if($_POST['application'] == 'Accept'){
           SET job.partTimerEmail = '".$partTimerMail."'
           WHERE job.jobID = '".$jobID."'";
 
+  $sql3 = "UPDATE job
+          SET job.employerEmail = '{$_SESSION['email']}'
+          WHERE job.jobID = '".$jobID."'";
+
   mysqli_query($connection, $sql);
   mysqli_query($connection, $sql2);
+  mysqli_query($connection, $sql3);
   echo mysqli_error($connection);
 
   header("Location: ../webpage/ependingApplication.php");
