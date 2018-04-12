@@ -141,21 +141,20 @@ include '../php/dbConnection.php';
         // initialize counter for pop-up/modal reference
         $eRating = "1";
 
-      echo '<div class="container">
-      <div class="modal fade" id="rateE" '.$eRating.' role="dialog" >
-      <div class="modal-dialog">
-
-      <form method="post" action="../php/epRating.php">
-      <div class="ratings">
-      <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h2 class="modal-title">Rate Employer</h2>
-      </div>
-
-      <div class="modal-body">';
-
         if (mysqli_num_rows($r_jDetails)>0){
           while ($row = mysqli_fetch_assoc($r_jDetails)){
+            echo '<div class="container">
+            <div class="modal fade" id="rateE" '.$eRating.' role="dialog" >
+            <div class="modal-dialog">
+
+            <form method="post" action="../php/epRating.php">
+            <div class="ratings">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title">Rate Employer</h2>
+            </div>
+
+            <div class="modal-body">';
 
             echo "<td style='text-align:center'>Employer Name : " . $row['fullName'] . "</td><br>";
             echo "<td style='text-align:center'>Title : " .$row["title"] . "</td><br>";

@@ -111,6 +111,7 @@ $email = $_SESSION['email'];
               $query = "SELECT * FROM job WHERE job.employerEmail='{$_SESSION['email']}'";
               $result = mysqli_query($connection, $query);
 
+
               if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_assoc($result)){
                   if ($row['status']=='available'){
@@ -145,6 +146,7 @@ $email = $_SESSION['email'];
                     echo "<input type=hidden name='jID' id='jID' value= " . $row['jobID'] . ">";
                     echo "</tr>";
                   }
+                }
               }
 
 
@@ -154,31 +156,25 @@ $email = $_SESSION['email'];
         </div>
       </div>";
 
-            $jobSelected = explode(',', $row['registeredJobID']);
-            foreach ($jobSelected as $jID){
-              $q_jobDetails = "SELECT * FROM job,parttimer WHERE job.employerEmail='{$_SESSION['email']}' AND parttimer.registeredJobID=job.jobID";
-              $r_jobDetails = mysqli_query($connection, $q_jobDetails);
-
+      $q_jobDetails = "SELECT * FROM application, job, parttimer WHERE application.employerEmail='{$_SESSION['email']}' AND application.jobID=parttimer.registeredjobID AND application.partTimerEmail=job.partTimerEmail";
+      $r_jobDetails = mysqli_query($connection, $q_jobDetails);
               // initialize counter for pop-up/modal reference
               $prating = "1";
 
-            echo '<div class="container">
-            <div class="modal fade" id="rateP" '.$prating.' role="dialog" >
-            <div class="modal-dialog">
-
-            <form method="post" action="../php/ptRating.php">
-            <div class="ratings">
-            <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title">Rate Part-Timer</h2>
-            </div>
-
-            <div class="modal-body">';
-
-
-
-              if (mysqli_num_rows($r_jobDetails)>0){
+              if (mysqli_num_rows($r_jobDetails) > 0){
                 while ($row = mysqli_fetch_assoc($r_jobDetails)){
+                  echo '<div class="container">
+                  <div class="modal fade" id="rateP" '.$prating.' role="dialog" >
+                  <div class="modal-dialog">
+
+                  <form method="post" action="../php/ptRating.php">
+                  <div class="ratings">
+                  <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h2 class="modal-title">Rate Part-Timer</h2>
+                  </div>
+
+                  <div class="modal-body">';
 
                   echo "<td style='text-align:center'>Part Timer Name : " . $row['fullName'] . "</td><br>";
                   echo "<td style='text-align:center'>Title : " .$row["title"] . "</td><br>";
@@ -218,8 +214,7 @@ $email = $_SESSION['email'];
                 $prating++;
               }
             }
-          }
-        }
+
        ?>
 
   <!-- Core JavaScript Files -->
