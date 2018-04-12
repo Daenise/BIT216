@@ -4,7 +4,7 @@ include '../php/dbConnection.php';
 
 $jobID = $_POST['hidden1'];
 $partTimerMail = $_POST['hidden2'];
-$employerEmail = $_POST['hidden3'];
+$employerEmail = $_POST['hidden4'];
 
 if($_POST['application'] == 'Accept'){
 
@@ -19,7 +19,8 @@ if($_POST['application'] == 'Accept'){
 
   $sql3 = "UPDATE application
             SET application.employerEmail = '".$employerEmail."'
-            WHERE application.jobID = '".$jobID."'";
+            WHERE application.partTimerEmail = '".$partTimerMail."'
+            AND application.jobID = '".$jobID."'";
 
   mysqli_query($connection, $sql);
   mysqli_query($connection, $sql2);

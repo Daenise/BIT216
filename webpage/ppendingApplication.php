@@ -123,7 +123,7 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" . $row['jobStatus'] . "</td>";
                   echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
                   echo "<input type=hidden name=hidden2 value= " . $row['partTimerEmail'] . ">";
-                  echo "<input type=hidden name=hidden3 value= " . $row['email'] . ">";
+                  echo "<input type=hidden name=hidden4 value= " . $row['email'] . ">";
                   echo "</tr>";
                   echo "</form>";
                 }

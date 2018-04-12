@@ -126,7 +126,7 @@ include '../php/dbConnection.php';
                   echo "<td style='text-align:center'>" . $row['status'] . "</td>";
                   echo "<td style='text-align:center'>" . $row['employerEmail'] . "</td>";
                   echo "<td><input type = submit name='application' value = 'Rate' style ='width:100%'></td>";
-                  echo "<input type=hidden name=hidden1 value= " . $row['jobID'] . ">";
+                  echo "<input type=hidden name=hidden6 value= " . $row['jobID'] . ">";
                   echo "</tr>";
                   echo "</form>";
                 }
