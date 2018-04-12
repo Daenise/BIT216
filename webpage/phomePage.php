@@ -108,7 +108,8 @@ include '../php/dbConnection.php';
 
               $query = "SELECT * FROM parttimer, job
                         WHERE job.status = 'complete'
-                        AND parttimer.email = job.partTimerEmail";
+                        AND parttimer.email = job.partTimerEmail
+                        AND parttimer.email='{$_SESSION['email']}'";
               $result = mysqli_query($connection, $query);
 
               if(mysqli_num_rows($result) > 0){
